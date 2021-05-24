@@ -1,0 +1,24 @@
+<view class="bigbox" wx:if="{{xiaoxi}}">
+
+  <view class="box" wx:for="{{InteractionList}}">
+    <view class="line1">
+      <view>
+        <image src="../../../images/chongzhi.png"></image>
+        <text style="color: #353C46; font-size: 28rpx" class="text">充值到账</text>
+      </view>
+      <view style="color: #AAAAAA; font-size: 24rpx">{{item.Message.time}}</view>
+    </view>
+    <view class="refuse">
+      <view style="color: #AAAAAA; font-size: 24rpx">充值金额</view>
+      <view style="color: #353C46; font-size: 60rpx; font-weight: 600">￥{{item.Message.num}}</view>
+    </view>
+    <view style="color: #AAAAAA; font-size: 28rpx">{{item.Message.Content}}</view>
+  </view>
+
+</view>
+
+<!-- 暂无消息 -->
+<view class="noxiaoxi" wx:if="{{!xiaoxi}}">
+  <image style="width: 400rpx; height: 140rpx;" src="../../../images/noxiaoxi.png"></image>
+  <text style="color: #090909">暂无消息</text>
+</view>

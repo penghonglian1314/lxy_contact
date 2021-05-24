@@ -1,0 +1,52 @@
+<!--pages/zhuye/zhuye.wxml-->
+<view class="box">
+  <view class="rows" catchtap="toSystemDetail" data-item="{{item}}">
+    <image class="msg_avatar" src="{{zhuye.AvatarUrl}}" />
+    <view class="msg_content">
+      <text style="color: #8F8F8F; font-size: 28rpx">{{zhuye.MemberName}}</text>
+      <text style="color: #999; font-size: 26rpx; margin-top: 15rpx">222</text>
+      <!-- 15个 -->
+    </view>
+    <view class="time" style="color: #999; font-size: 24rpx;">
+      <view class="view_zy">
+        <text>Ta的主页</text>
+        <!-- <view style="display:inline-block"> -->
+        <image style="width: 50rpx;height: 33rpx;" src="/images/arrow_right_q.svg"></image>
+      </view>
+      <!-- </view> -->
+    </view>
+  </view>
+
+  <view class="contact">
+    <view> 置顶聊天 </view>
+    <!-- <view> -->
+      <van-switch checked="{{ checked }}" bind:change="onChange" size="24px" />
+      <!-- <image class="switch" src="/images/stop_q.svg"></image> -->
+    <!-- </view> -->
+  </view>
+
+
+  <view bindtap="beizhu" class="choice" data-item="{{zhuye}}">
+    <view>备注</view>
+    <view>
+      <image src="/images/arrow_right_q.svg"></image>
+    </view>
+  </view>
+
+  <view catchtap="jubao" class="choice">
+    <view>举报</view>
+    <view>
+      <image src="/images/arrow_right_q.svg"></image>
+    </view>
+  </view>
+
+  <view catchtap="lahei" class="choice">
+    <view>拉黑</view>
+    <view>
+      <image src="/images/arrow_right_q.svg"></image>
+    </view>
+  </view>
+
+
+
+</view>

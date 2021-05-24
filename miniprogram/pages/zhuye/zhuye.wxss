@@ -1,0 +1,65 @@
+/* pages/zhuye/zhuye.wxss */
+/* pages/messages/index.wxss */
+.box {
+  padding: 0 20rpx;
+}
+.rows {
+  margin: 20rpx 0 50rpx;
+  padding-bottom: 20rpx;
+  display: flex;
+  position: relative;
+  border-bottom: 1rpx solid #eee
+}
+.msg_avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.msg_content {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  height: 100rpx;
+  /* line-height: 100rpx; */
+}
+.time {
+  position: absolute;
+  right: 30rpx;
+
+}
+.view_zy {
+  width: 200rpx;
+  height: 50rpx;
+  display: flex;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-between;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #999;
+}
+.contact{
+  
+  display: flex;
+  justify-content: space-between;
+  /* height: 90rpx;
+  line-height: 90rpx; */
+  color: #999;
+  align-items: center;
+}
+.choice view {
+  height: 90rpx;
+}
+.choice image {
+  width: 50rpx;
+  height: 33rpx;
+  vertical-align: middle;
+}
+.switch {
+  
+  width: 70rpx !important;
+  height: 50rpx;
+  vertical-align: middle;
+}

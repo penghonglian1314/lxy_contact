@@ -1,0 +1,84 @@
+page{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(56, 55, 55, 0.651);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  z-index: 9999999999999;
+}
+
+.test_box{ /**/
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  /* border: 1px solid; */
+  height: 170rpx;
+}
+.test_box1{ /**/
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  /* border: 1px solid; */
+  height: 73rpx;
+  font-size: 26rpx;
+}
+.test{ /*弹窗背景内容*/
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx;
+  /* border: 1px solid blue; */
+  height: 100%;
+  background-color: #4c4c4c;
+  opacity: 1;
+  color: white;
+  border-radius: 5%;
+}
+.test1{ /*弹窗背景内容*/
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  /* border: 1px solid blue; */
+  height: 100%;
+  background-color: #4c4c4c;
+  opacity: 1;
+  color: white;
+  border-radius: 5%;
+}
+
+
+.icon{
+  width: 60rpx;
+  height: 60rpx;
+  margin: auto;
+  /* border: 1px solid red; */
+}
+.icon image{
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid green; */
+}
+.text{
+  /* border: 1px solid blue; */
+  margin-top: 20rpx;
+}
+.text1{
+  /* border: 1px solid blue; */
+  margin-top: 0rpx;
+}

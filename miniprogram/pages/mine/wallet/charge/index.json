@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "navbar": "../../../circle/component/navbar/index"
+  },
+  "navigationStyle": "custom"
+}

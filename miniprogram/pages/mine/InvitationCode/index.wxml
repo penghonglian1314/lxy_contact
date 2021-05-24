@@ -1,0 +1,30 @@
+<view class='view-page' style="height:100vh">
+  <navbar page-name="申请邀请码"></navbar>
+  <view class='page-content'>
+    <view class="column" wx:if="{{isapply}}">
+      <view class="top">
+        <view class="img">
+          <image src="../../../images/sqyzm.png"></image>
+        </view>
+        <view>申请邀请码是免费的</view>
+        <view>我们会根据您的记录评估是否发放邀请码</view>   
+      </view>
+      <van-button type="default" round bindtap = "applyFor">确定申请</van-button>
+    </view>
+    <view wx: wx:if="{{isapply1}}" class="applying"> 
+      <view class="img">
+        <image src="../../../images/sqz.png"></image>
+      </view>
+      <view>申请中,请耐心等待</view>
+    </view>
+
+    <view wx:if="{{isapply2}}" class="applying"> 
+      <view class="img">
+        <image src="../../../images/sqyzm.png"></image>
+      </view>
+      <view>邀请码为</view>
+      <view>{{con}}</view>
+    </view>
+      
+  </view>
+</view>

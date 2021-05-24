@@ -1,0 +1,103 @@
+/* pages/auth_apply/index.wxss */
+/* pages/messages/toInteraction/toInteraction.wxss */
+/* pages/messages/index.wxss */
+.box_wrapper {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.rows {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+
+
+.avatar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
+  flex-direction: column;
+  padding-left: 30rpx;
+}
+
+.name_time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sex_age {
+  margin-top: 4rpx;
+  padding: 2rpx 6rpx;
+
+  width: 60rpx;
+  height: 32rpx;
+  border-radius: 16rpx;
+  font-size: 22rpx;
+  line-height: 32rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.sex_age .sex {
+  width: 16rpx;
+  text-align: center;
+}
+
+.sex_age .age {
+  width: 32rpx;
+  text-align: center;
+}
+
+.info {
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 15rpx;
+  margin-bottom: 30rpx;
+}
+.btn_box{
+    display: flex;
+}
+.btn_box view {
+  text-align: center;
+  color: #AAAAAA;
+  font-size: 26rpx;
+  background-color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30px;
+  border: 1px solid #E2E2E2;
+
+  width: 126rpx;
+
+
+}
+
+.btn_box view:first-child {
+  width: 260rpx;
+}
+
+.btn_box .agree{
+  background-color: #00EAA4;
+  color: #fff;
+  border: none;
+}
+.btn_box .refuse{
+  background-color: #F4F5F7;
+  color: #353C46;
+  border: none;
+  margin-left: 10rpx;
+}

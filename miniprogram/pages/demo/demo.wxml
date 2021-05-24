@@ -1,0 +1,48 @@
+<scroll-view style="height: 1500rpx" class="scroll-interaction"  bindscroll="scroll_scroll" 
+  scroll-into-view="{{intoView}}" scroll-top="{{scrollTop}}" scroll-y scroll-with-animation>
+
+  <block id="hideview" wx:key="{{index}}" wx:for="{{ContentList}}">
+    <!-- <view> -->
+    <!-- <view>
+      <text class='time'>{{time}}</text>
+    </view> -->
+    <view class='my_right' id='msg-{{index}}' wx:if="{{item.is_my}}">
+      <view class='p_r'>
+        <view class='new_txt'>
+          <view class='new_txt_my' wx:if="{{item.ContentType == 0 }}" data-item="{{item}}" bindlongpress='longpress'>
+            {{item.Message}}</view>
+          <image class='new_image_my' wx:if="{{item.ContentType ==1 }}" data-item="{{item}}" src="{{item.Message}}">
+          </image>
+          <image class='new_image_my' wx:if="{{item.ContentType ==6 }}" data-item="{{item}}" src="{{item.Message}}">
+          </image>
+        </view>
+        <image class='new_img' src='{{item.AvatarUrl}}'></image>
+      </view>
+
+    </view>
+    <view class='you_left' id='msg-{{index}}' wx:key="{{index}}" wx:if="{{item.is_you}}">
+      <view class='p_r'>
+        <image class='new_img_left' bindtap="detailNews" data-item="{{item}}" wx:if="{{item.MsgClassify == '0'}}"
+          src='{{item.AvatarUrl}}'>
+        </image>
+        <image class='new_img_left' wx:if="{{item.MsgClassify == '2'}}" src='../../../images/Member001.jpg'></image>
+        <!-- <view class='sanjiao you'></view> -->
+        <view class='new_txt'>
+          <view data-item="{{item}}" catchtap='longpress'>
+            <!-- {{item.text}} -->
+            <!-- <block wx:for='{{item.is_two}}' wx:key='index'> -->
+            <view class='new_txt_ai' wx:if="{{item.ContentType ==0 }}">{{item.Message}}</view>
+            <image class='new_image_you' wx:if="{{item.ContentType ==1 }}" data-item="{{item}}" src="{{item.Message}}">
+            </image>
+            <image class='new_image_you' wx:if="{{item.ContentType ==6 }}" data-item="{{item}}" src="{{item.Message}}">
+            </image>
+            <!-- </block> -->
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <!-- </view> -->
+  </block>
+
+</scroll-view>

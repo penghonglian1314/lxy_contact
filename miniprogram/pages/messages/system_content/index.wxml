@@ -1,0 +1,23 @@
+<block wx:if="{{xiaoxi}}">
+  <view class="bigbox" wx:for="{{systemContent}}">
+    <view class="title">
+      <image class="imgAvatar" wx:if="{{item.ismine}}" src="../../../images/weigui.png"></image>
+      <image class="imgAvatar" wx:else src="../../../images/jubaocg.png"></image>
+      <view class="title_con" wx:if="{{item.ismine}}">违规警告</view>
+      <view class="title_con" wx:else>举报成功</view>
+      <view class="msgTime">{{item.MsgTime}}</view>
+    </view>
+    <view class="zhuti">
+      {{item.text}}
+    </view>
+    <view class="content">
+      {{item.Message}}
+    </view>
+  </view>
+</block>
+
+<!-- 暂无消息 -->
+<view class="noxiaoxi" wx:if="{{!xiaoxi}}">
+  <image style="width: 400rpx; height: 140rpx;" src="../../../images/noxiaoxi.png"></image>
+  <text style="color: #090909">暂无消息</text>
+</view>

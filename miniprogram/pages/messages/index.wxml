@@ -1,0 +1,50 @@
+<view>
+  <van-swipe-cell right-width="{{ 65 }}" wx:for="{{msgList}}" wx:key="{{index}}">
+    <view class="rows" wx:if="{{item.MsgClassify == '2'}}" catchtap="toSystemDetail" data-item="{{item}}">
+      <image class="msg_avatar" src="../../images/Member001.jpg" />
+      <view class="msg_content">
+        <text style="color: #8F8F8F; font-size: 28rpx">系统通知</text>
+        <text style="color: #999; font-size: 26rpx; margin-top: 15rpx">{{item.Message}}</text>
+        <!-- 15个 -->
+      </view>
+      <view class="time" style="color: #999; font-size: 24rpx;">{{item.MsgTime}}</view>
+      <view class="delete" catchtap="deleteContent" data-item="{{item}}" slot="right">删除</view>
+    </view>
+    <view class="rows" wx:if="{{item.MsgClassify == '0'}}" catchtap="toContentDetail" data-item="{{item}}">
+      <image class="msg_avatar" src="{{item.AvatarUrl}}" />
+      <view class="msg_content">
+        <text style="color: #8F8F8F; font-size: 28rpx">{{item.MemberName}}</text>
+        <text style="color: #999; font-size: 26rpx; margin-top: 15rpx">{{item.Message}}</text>
+        <!-- 15个 -->
+      </view>
+      <view class="time" style="color: #999; font-size: 24rpx;">{{item.MsgTime}}</view>
+      <view class="delete" catchtap="deleteContent" data-item="{{item}}" slot="right">删除</view>
+    </view>
+
+    <!-- 互动消息 -->
+    <view class="rows" wx:if="{{item.MsgClassify == '3'}}" catchtap="toInteraction" data-item="{{item}}">
+      <image class="msg_avatar" src="../../images/Member002.jpg" />
+      <view class="msg_content">
+        <text style="color: #8F8F8F; font-size: 28rpx">互动消息</text>
+        <text style="color: #999; font-size: 26rpx; margin-top: 15rpx">{{item.MsgType}}</text>
+        <!-- 15个 -->
+      </view>
+      <view class="time" style="color: #999; font-size: 24rpx;">{{item.MsgTime}}</view>
+      <view class="delete" catchtap="deleteContent" data-item="{{item}}" slot="right">删除</view>
+    </view>
+
+
+    
+    <!-- 申请消息 -->
+    <view class="rows" wx:if="{{item.MsgClassify == '4'}}" catchtap="toApply" data-item="{{item}}">
+      <image class="msg_avatar" src="../../images/Member002.jpg" />
+      <view class="msg_content">
+        <text style="color: #8F8F8F; font-size: 28rpx">申请消息</text>
+        <text style="color: #999; font-size: 26rpx; margin-top: 15rpx">{{item.MsgType}}</text>
+        <!-- 15个 -->
+      </view>
+      <view class="time" style="color: #999; font-size: 24rpx;">{{item.MsgTime}}</view>
+      <view class="delete" catchtap="deleteContent" data-item="{{item}}" slot="right">删除</view>
+    </view>
+  </van-swipe-cell>
+</view>

@@ -1,0 +1,38 @@
+<view class="bigbox" wx:for="{{CodeList}}" wx:key="{{index}}">
+  <!-- 邀请码申请成功 -->
+  <view class="box" wx:if="{{item.ContentType == '2'}}">
+
+    <view class="line1">
+      <view>
+        <image src="../../../images/apply_fail.png"></image>
+        <text class="text" style="color: #353C46; font-size: 28rpx">申请失败</text>
+      </view>
+      <view style="color: #AAAAAA; font-size: 24rpx">{{item.MsgTime}}</view>
+    </view>
+    <view class="refuse">申请被拒绝</view>
+    <view style="color: #AAAAAA; font-size: 28rpx;padding-top: 17rpx; border-top: 1rpx solid #E2E2E2;">{{item.Message}}</view>
+  </view>
+
+  <!-- 邀请码邀请失败 -->
+  <view class="box" wx:if="{{item.ContentType == '1'}}">
+    <view class="line1">
+      <view>
+        <image src="../../../images/apply_sucess.png"></image>
+        <text style="color: #353C46; font-size: 28rpx" class="text">申请成功</text>
+      </view>
+      <view style="color: #AAAAAA; font-size: 24rpx">{{item.MsgTime}}</view>
+    </view>
+    <view style="color: #AAAAAA; font-size: 28rpx">{{item.Message}}</view>
+    <button open-type="share" class="yaoqing">
+      <text style="color: #353C46; font-size: 34rpx; font-weight: 600">邀请好友</text>
+      <image style="width: 50rpx ; height: 50rpx" src="../../../images/arrow.png"></image>
+    </button>
+  </view>
+
+</view>
+
+<!-- 暂无消息 -->
+<view class="noxiaoxi" wx:if="{{xiaoxi}}">
+  <image style="width: 400rpx; height: 140rpx;" src="../../../images/noxiaoxi.png"></image>
+  <text style="color: #090909">暂无消息</text>
+</view>

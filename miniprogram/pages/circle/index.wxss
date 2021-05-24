@@ -1,0 +1,322 @@
+/* pages/circle/index.wxss */
+.circle{
+  width: 750rpx;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.header-left{
+  width: 750rpx;
+}
+.header-right{
+  position: absolute;
+  top: 22rpx;
+  right: 20rpx;
+  z-index: 2;
+}
+
+.header-right image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.van-hairline--top-bottom:after{
+  border: 0 !important;
+}
+.van-tab--active{
+  font-size: 18px!important;
+}
+.btngroup{
+  display: flex;
+  padding-left: 40rpx;
+}
+.btngroup a{
+  /* width: 200rpx; */
+  padding: 15rpx 50rpx;
+  border-radius: 10em;
+  margin: 20rpx 10rpx;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+.online{
+  display: flex;
+  justify-content: space-between;
+  /* padding-top:30rpx;
+  padding-left:20rpx; */
+  padding: 30rpx 20rpx;
+}
+.bottombtn{
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 40rpx;
+}
+.bottombtn .van-button{
+  width: 300rpx;
+}
+.btngroup .btnactive{
+  color: #00EAA4;
+  background:#E5FDF6!important;
+  border: 1px solid #00EAA4;
+}
+
+.con_tet3{
+  width: 92rpx;
+  height: 40rpx;
+  /* background: #D8D8D8; */
+  border-radius: 20px;
+  float: right;
+  margin-left: 10rpx;
+}
+
+.con_tet3 image{
+  width: 100%;
+  height: 100%;
+}
+
+.con_tet4{
+  width: 40px;
+  height: 32rpx;
+  background: whitesmoke;
+  /* position: absolute;
+  top: 50px;
+  left: 80px; */
+  border-radius: 50px;
+  line-height: 32rpx;
+  display: flex;
+}
+
+.con_tet4_1{
+  background: dodgerblue;
+}
+
+.con_tet4_2{
+  background: #FF5697;
+}
+
+.con_tet4_3{
+  background: #786AFF;
+  margin-left: 10px;
+  text-align: center;
+  /* line-height: 24rpx; */
+  padding-left: 15rpx;
+}
+
+.center{
+  display: flex;
+}
+
+.center .con_tet4_3 text{
+  font-size: 10px;
+  text-align: center;
+  padding: 0px;
+}
+
+.con_tet4 view{
+  color: white;
+  font-size: 12px;
+  padding-left: 6px;
+  /* float: left; */
+}
+
+.con_tet4 text{
+  color: white;
+  font-size: 12px;
+  padding-left: 2px;
+}
+
+.custom-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: white;
+  z-index: 2;
+}
+
+.custom-bar1{
+  width: 100%;
+  height: 60px;
+}
+
+.custom-bar__wrapper {
+  padding: 0 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-group {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search-group .title{
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-left: 2em;
+}
+
+.van-tab--active{
+  font-weight: bold;
+}
+
+
+/* 列表 */
+.list{
+  display: flex;
+  padding: 20px 10px;
+  height: 160rpx;
+}
+.left{
+  width: 200rpx;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+.left .img{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50px;
+  background: whitesmoke;
+  overflow: hidden;
+  position: relative;
+  
+}
+.left .van-tag{
+  position: absolute;
+  bottom: 10rpx;
+  left: -5px;
+  border-radius: 50px;
+  width: 60rpx;
+  text-align: right;
+  display: block;
+}
+.left .img image{
+  width: 100%;
+  height: 100%;
+}
+.right{
+  width: 555rpx;
+  border-bottom: 1px solid #FAFAFA;
+  display: flex;
+}
+.right .info{
+  width: 415rpx;
+  height: 100%;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.right .info view{
+  margin-bottom: 5rpx;
+}
+
+.right .info .top{
+  display: flex;
+}
+.right .info .top .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .center .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .bottom{
+  width: 300rpx;
+  font-size: .8em;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.right .more{
+  width: 250rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.van-tabs__line{
+  display: none;
+}
+
+.van-tabs__wrap .van-tab--active{
+  font-weight: bold;
+}
+
+.more van-icon{
+  color: gray;
+}
+
+.right .more .top{
+  font-size: .9em;
+  color: gray;
+  /* width: 40px; */
+}
+
+.right .more .top view{
+  width: 10rpx;
+  height: 10rpx;
+  background: #00EAA4;
+  border-radius: 10px;
+  float: left;
+  margin: 7px 5px 0px 0px;
+}
+
+.popover1{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx 10rpx 0px 20rpx;
+  float: left;
+}
+
+.but{
+  width: 94%;
+  height: 50px;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px auto 10px;
+}
+
+.but .but1{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 50px;
+  line-height: 50px;
+  color: white;
+  background: #FF0055;
+}
+
+.bottombtn .but_cz1 button{
+  width: 200rpx;
+  color: black;
+}
+
+.bottombtn .but_cz1 button .van-button__text{
+  color: black;
+}
+
+.bottombtn .but_cz2 button{
+  width: 400rpx;
+  color: black;
+}

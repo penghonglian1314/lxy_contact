@@ -1,0 +1,34 @@
+<import src="../we-cropper/we-cropper" />
+
+<!-- <form bindsubmit="bindFormSubmit"> -->
+  <textarea placeholder="谈吐文明的人更受欢迎，请勿发布低俗、色情交易、曝光他人隐私的内容" value="{{textarea}}" bindinput="tet" auto-focus="{{true1}}" focus="{{true2}}" cursor="1"></textarea>
+
+  <view class="feed-image">
+    <van-uploader file-list="{{ fileList1 }}" max-count="6" bind:delete="Delete" bind:after-read="afterRead1"
+      deletable="{{ true }}" image-fit="{{}}" multiple="true" />
+  </view>
+
+  <text class="con_tet">请勿上传低俗裸露的照片，严重者将作封号处理</text>
+
+  <view class="con_tet1">
+    <!-- <view class="con_tet1_1">
+      <image></image>
+    </view> -->
+    <text>禁止评论</text>
+
+    <van-switch checked="{{ checked }}" bind:change="onChange" size="20px" active-color="#00EAA4" />
+  </view>
+
+  <view class="con_tet1">
+    <!-- <view class="con_tet1_1">
+      <image></image>
+    </view> -->
+    <text>对同性别用户隐藏</text>
+
+    <van-switch checked="{{ checked1 }}" bind:change="onChange1" size="20px" active-color="#00EAA4" />
+  </view>
+
+  <view class="but">
+    <button class="but1" bindtap="bindFormSubmit">发布</button>
+  </view>
+<!-- </form> -->

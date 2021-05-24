@@ -1,0 +1,48 @@
+/* pages/mine/homepage/updateMeaasge/index.wxss */
+.van-cell {
+  align-items:center;
+}
+.page-content{
+  padding: 0 37rpx;
+}
+.page-content .btn{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.page-content .btn .van-button{
+  width: 100%;
+}
+.updateMessage{
+  padding-top: 20rpx;
+  border-bottom: 1px solid #F7F7F7;
+}
+.img{
+  
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+}
+.img image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+.bgimage{
+  background: #d7d7d7;
+}
+.popup{
+  height: 500rpx;
+}
+.popup .title{
+  text-align: center;
+  padding-top: 30rpx;
+  padding-bottom: 100rpx;
+}
+.popup .btn{
+  padding-top: 120rpx;
+}
+.popup .btn .van-button{
+  width: 100%;
+}

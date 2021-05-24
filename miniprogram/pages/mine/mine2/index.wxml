@@ -1,0 +1,195 @@
+
+<!--pages/firstpage/index.wxml-->
+
+<!-- <view style="margin-bottom:600rpx">
+<button open-type="getUserInfo" bindgetuserinfo="auth">授权</button>
+</view> -->
+<!--pages/firstpage/index.wxml-->
+<!-- <text>pages/firstpage/index.wxml</text> -->
+
+<!-- <view class="custom-bar" style="height:{{navHeight}}px">
+  <view class="custom-bar__wrapper" style="margin-top:{{searchMarginTop}}px; height: {{searchHeight}}px;width: {{searchWidth}}px" >
+    <view class="search-group">
+      <image bindtap = "searchClick" src="../../../images/sx.png"></image>
+      <van-icon src="../../../images/sx.png" size="25px" style="margin-left:20rpx" bindtap = "searchClick"/>
+      筛选
+      <view class="title">
+        圈子
+      </view>
+        
+    </view>
+  </view>
+</view> -->
+
+<view class="yqm" wx:if="{{yqm}}">
+  <view class="yqm1">
+    <text>邀请码</text>
+
+    <input type="text" placeholder="本平台为邀请制，请输入邀请码" bindinput="tet"></input>
+
+    <button open-type="getUserInfo" bindgetuserinfo="auth">确定</button>
+  </view>
+</view>
+
+<view class="ts" wx:if="{{ts}}">
+  <image class="ts_1" src="../../../images/lb.png"></image>
+  <text>
+    健康交流，请勿发布低俗内容，一经发现作删除处理
+  </text>
+  <image bindtap="but_ts" class="ts_2" src="../../../images/gb.png"></image>
+</view>
+
+<view class="con" wx:for="{{con}}" wx:key="key" bindtap = "close" data-index="{{item.DynamicID}}" catchtap="but2">
+  <view class="con_tet1">
+    <image mode="aspectFill" src="{{item.AvatarUrl}}" data-index="{{item.MemberID}}" catchtap="but1"></image>
+  </view>
+
+  <view class="con_tet2">
+    <text>{{item.MemberName}}</text>
+
+    <view class="con_tet3">
+      <image mode="aspectFit" src="{{item.Level==0? '../../../images/xr.png':'../../../images/vip.png'}}"></image>
+    </view>
+  </view>
+
+  <view class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}}">
+    <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view>
+    <text>{{item.Birth}}</text>
+  </view>
+  
+  <view class="con_tet5">
+    <text>{{item.CreateTime}}</text>
+  </view>
+
+  <view class="line"></view>
+
+  <view class="con_tet6">
+    <text decode='true'>{{item.Desctet}}</text>
+  </view>
+
+  <view class="line"></view>
+
+  <view wx:if="{{item.PicUrls.length==1 && item.PicUrls[0]!=''}}">
+    <view wx:for="{{item.PicUrls}}" wx:for-item="pic" wx:key="key" class="con_tet7" data-index="{{item.PicUrls}}" data-src="{{pic}}" catchtap="preview">
+      <image mode="aspectFill" src="{{pic}}"></image>
+    </view>
+
+    <view class="line"></view>
+  </view>
+  
+
+  <view wx:if="{{item.PicUrls.length==2||item.PicUrls.length==4}}" class="con_tet8">
+    <view wx:for="{{item.PicUrls}}" wx:for-item="pic" class="con_tet8_1" data-index="{{item.PicUrls}}" data-src="{{pic}}" catchtap="preview">
+      <image mode="aspectFill" src="{{pic}}"></image>
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view wx:if="{{item.PicUrls.length==3||item.PicUrls.length>4}}" class="con_tet9">
+    <view wx:for="{{item.PicUrls}}" wx:for-item="pic" class="con_tet9_1" data-index="{{item.PicUrls}}" data-src="{{pic}}" catchtap="preview">
+      <image mode="aspectFill" src="{{pic}}"></image>
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view class="con_tet10" wx:if="{{item.UrlList[0]!=''}}">
+    <view wx:for="{{item.UrlList}}" wx:if="{{index<10}}">
+      <image mode="aspectFill" src="{{item}}"></image>
+    </view>
+
+    <view wx:if="{{item.UrlList.length>10}}" class="con_tet10_1">
+      <image src="{{item.UrlList[10]}}"></image>
+
+      <text>{{item.UrlList.length-10}}</text>
+    </view>
+    
+  </view>
+
+  <view class="con_tet11">
+    <view>
+      <image wx:if="{{item.ydz}}" src="../../../images/ydzicon.png" catchtap="ydianzan" data-index="{{item.DynamicID}}" data-index1="{{index}}" data-item="{{item.MemberID}}"></image>
+      <image wx:else src="../../../images/dzicon.png" catchtap="dianzan" data-index="{{item.DynamicID}}" data-index1="{{index}}" data-item="{{item.MemberID}}"></image>
+    </view>
+
+    <text>{{item.Likes==0? '抢首赞': item.Likes}}</text>
+  </view>
+
+  <view class="con_tet12">
+    <view catchtap="pl" data-index="{{index}}" data-item="{{item.DynamicID}}"  data-index1="{{item.MemberID}}">
+      <image wx:if="{{item.CanComment==0}}" src="../../../images/jzplicon.png"></image>
+      <image wx:else src="../../../images/plicon.png"></image>
+    </view>
+
+    <text>{{item.CanComment==0? '禁评':item.Comments}}</text>
+  </view>
+
+  <view class="con_tet13">
+    <van-icon name="ellipsis" size="1.4em" catchtap="onTap" id="{{item.id}}" data-index="{{item.MemberID}}" data-item="{{item.MemberName}}" data-index1="{{item}}" />
+  </view>
+
+  <view class="line"></view>
+
+  <view wx:if="{{comm}}" class="comm" catchtap="pl1">
+    <view class="comm1" catchtap="pl2">
+      <textarea value="{{com}}" data-name="{{com}}" bindinput="onHandleTextSync"></textarea>
+
+      <view catchtap="but">发送</view>
+    </view>
+    
+  </view>
+ 
+</view>
+
+<view class="con_tet14" wx:if="{{con.length=='0'}}">暂无动态</view>
+
+<show id="show"></show>
+
+<popover id='popover' totop="10">
+  <popover-item wx:if="{{fdt}}" catchtap='lik' hasline>
+    <image class="popover1" src="../../../images/qk.png"></image>
+  删除动态</popover-item>
+  <!-- <popover-item catchtap='blacklist' hasline>
+    <image class="popover1" src="../../../images/jubao.png"></image>
+  举报</popover-item> -->
+
+  <view wx:else>
+    <popover-item catchtap='lik1' hasline>
+      <image class="popover1" src="../../../images/jrxh.png"></image>
+    加入喜欢</popover-item>
+    <popover-item catchtap='blacklist' hasline>
+      <image class="popover1" src="../../../images/jubao.png"></image>
+    举报</popover-item>
+  </view>
+</popover>
+
+<van-action-sheet show="{{ SelectShow }}" bind:close="SelectClose" title="筛选" wx:if="{{islady}}">
+    <view style="padding-top:30rpx;padding-left:20rpx;">性别</view>
+    <view class="btngroup">
+      <a class="{{btnactive == 1 && 'btnactive' }}"  bindtap="selall">全部</a>
+      <a class="{{btnactive == 2 && 'btnactive' }}" bindtap="selnew">女士</a>
+      <a class="{{btnactive == 3 && 'btnactive' }}" bindtap="selbeautiful">男士</a>
+    </view>
+
+    <view style="padding-top:30rpx;padding-left:20rpx;">想看的用户</view>
+    <view class="btngroup">
+      <a class="{{btnactive1 == 1 && 'btnactive1' }}"  bindtap="selall1">全部</a>
+      <a class="{{btnactive1 == 2 && 'btnactive1' }}" bindtap="selnew1">喜欢我的</a>
+      <a class="{{btnactive1 == 3 && 'btnactive1' }}" bindtap="selbeautiful1">我喜欢的</a>
+    </view>
+    <!-- <view class="online" >
+      <view>
+        只看在线
+      </view>
+      <van-switch checked="{{ online }}" bind:change="onlineChange"/>
+    </view> -->
+    <view class="bottombtn">
+      <van-button round="true" type="default">重置</van-button>
+      <van-button color="#FF0055" round="true" type="default" bindtap="but_sx">确定</van-button>
+    </view>
+  </van-action-sheet>
+
+  <view wx:if="{{fdt}}" class="but">
+    <button class="but1" bindtap="bindFormSubmit">发动态</button>
+  </view>

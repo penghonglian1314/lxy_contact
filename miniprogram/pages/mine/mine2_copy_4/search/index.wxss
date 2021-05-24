@@ -1,0 +1,125 @@
+/* pages/circle/search/index.wxss */
+.history{
+  padding-top:20rpx;
+}
+.history .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.history .bottom .van-button{
+  width: unset;
+  margin:15rpx;
+  padding: 0 20px !important;
+}
+
+.userinfo .nodata{
+  display: flex;
+  flex-direction: column;
+  justify-content:  center;
+  align-items: center;
+  padding-top: 20rpx;
+}
+.userinfo .nodata .img{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50px;
+  background: #e8e8e8;
+  margin-bottom: 20rpx;
+}
+.userinfo .userinfoItem .list{
+  display: flex;
+  padding: 20px 10px;
+}
+.left{
+  width: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+.left .img{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50px;
+  background: whitesmoke;
+  overflow: hidden;
+  
+}
+.left .van-tag{
+  position: absolute;
+  bottom: 10rpx;
+  left: 25rpx;
+  border-radius: 50%;
+}
+.left .img image{
+  width: 100%;
+  height: 100%;
+}
+
+.con_tet4{
+  width: 40px;
+  height: 20px;
+  background: whitesmoke;
+  /* position: absolute;
+  top: 50px;
+  left: 80px; */
+  border-radius: 50px;
+  line-height: 20px;
+}
+
+.con_tet4_1{
+  background: dodgerblue;
+}
+
+.con_tet4_2{
+  background: #FF5697;
+}
+
+.con_tet4 text{
+  color: white;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.right{
+  width: 515rpx;
+  border-bottom: 1px solid #FAFAFA;
+  display: flex;
+}
+.right .info{
+  width: 415rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.right .info .top{
+  display: flex;
+}
+.right .info .top .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .center .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .bottom{
+  font-size: .8em;
+}
+.right .more{
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.right .more .top{
+  font-size: .9em;
+}

@@ -1,0 +1,78 @@
+<view class='view-page'>
+  <!-- <navbar page-name=""></navbar> -->
+  <view class='page-content'>
+    <van-search
+      value="{{ value }}"
+      placeholder="搜索用户名"
+      shape="round"
+      use-action-slot
+      bind:change="onChange"
+      bind:search="onSearch"
+    >
+      <view slot="action" bind:tap="onClick">搜索</view>
+    </van-search>
+
+    <view class="history" wx:if="{{isSearch}}">
+      <view class="top">
+        <view>历史搜索</view>
+        <van-icon name="delete" size="1.5em" bindtap = "_deletehistory"/>
+      </view>
+      <view class="bottom">
+        <van-button type="default" wx:for="{{btnlist}}" wx:key="key" round="true" data-item="{{item}}" bindtap = "historyclick">{{item}}</van-button>
+      </view>
+    </view>
+
+    <view class="userinfo" wx:else>
+      <view class="userinfoItem" wx:if="{{alldata.length != 0}}">      
+        <view class="list" hover-class="none" hover-stop-propagation="false" wx:for="{{all}}" wx:key="key">
+            <view class="left" >
+              <view class="con_tet1">
+                <image src="{{item.AvatarUrl}}" data-index="{{item.MemberID}}" catchtap="but1"></image>
+
+                <view wx:if="{{item.Online==0}}"></view>
+              </view>
+            </view>
+            <view class="right" >
+              <view class="info" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view selectable="false" space="false" decode="false">
+                    {{item.MemberName}}
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">会员</van-tag>
+                  <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">新人</van-tag> -->
+                </view>
+                <view class="center" hover-class="none" hover-stop-propagation="false">
+                  <view class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}}">
+                    <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view>
+                    <text>{{item.Birth}}</text>
+                  </view>
+                </view>
+                <!-- <view class="bottom" hover-class="none" hover-stop-propagation="false">
+                  {{item.City!=''? item.City : '--'}}
+                </view> -->
+              </view>
+              <view class="more" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  {{item.Online=='0'? '在线':item.Online}}
+                </view>
+                <!-- <van-icon name="ellipsis" id="{{item.id}}" data-item="{{item}}"  catchtap = "onTap"/> -->
+              </view>
+            </view>
+
+            <!-- <popover id='popover' totop="115">
+              <popover-item catchtap='onClickA' data-index="{{item.MemberID}}" data-item="{{item.MemberName}}" hasline>加入喜欢</popover-item>
+              <popover-item catchtap='blacklist' data-index="{{item.MemberID}}" data-item="{{item.MemberName}}" hasline>拉黑</popover-item>
+           </popover> -->
+          </view>
+      </view>
+      <view class="nodata" wx:else>
+        <image mode="aspectFill" src="../../../images/cwcr.png"></image>
+        <view>查无此人，试试其他搜索</view>
+          
+      </view>
+        
+    </view>
+      
+      
+  </view>
+</view>

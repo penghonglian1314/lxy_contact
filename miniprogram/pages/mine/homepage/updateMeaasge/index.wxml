@@ -1,0 +1,166 @@
+<view class='view-page' style="height:100vh">
+  <navbar page-name="编辑资料" isupdateMessage="true"></navbar>
+  <view class='page-content'>
+     <view class="updateMessage">
+        <view>编辑资料</view>
+        <van-cell title="头像" is-link bind:click="getheadphoto">
+          <view class="img">
+            <image mode="aspectFill" class="{{ismineimg ? 'bgimage' : ''}}" src="{{mine.AvatarUrl}}" ></image>
+          </view>
+        </van-cell>
+        <van-cell title="昵称" is-link value="{{mine.MemberName}}" bind:click="updatename" />
+        <van-cell title="出生日期" is-link value="{{mine.Birth}}" bind:click="updatedate"/>
+        <van-cell title="城市" is-link value="{{mine.City}}" bind:click="updateCity"/>
+        <van-cell title="爱好" is-link value="{{mine.Hobby}}" bind:click="updatehobby"/>
+        <van-cell title="期望对象" is-link value="{{mine.Expect}}" bind:click="updateyearnfor"/>
+        <van-cell title="职业" is-link value="{{mine.Occupation}}" bind:click="updateprofession"/>
+        <view style="padding-top:15rpx;">个人信息</view>
+        <van-cell title="身高" is-link value="{{mine.Height}}" bind:click="updateheight"/>
+        <van-cell title="体重" is-link value="{{mine.Weight}}" bind:click="updateweight"/>
+        <van-cell title="性别" is-link value="{{mine.Gender==0? '男' :''||mine.Gender==1? '女':''}}" bind:click="updateGender"/>
+        <van-cell title="星座" is-link value="{{mine.Constellation}}" bind:click="updateConstellation"/>
+        <view style="padding-top:15rpx;">个人介绍</view>
+        <van-field
+            model:value="{{ mine.introduce }}"
+            placeholder="我是一个粉刷匠,粉刷本领强"
+            border="{{ false }}"
+            bind:change="introduce"
+          />
+        <!-- 修改昵称 -->
+        <van-popup show="{{ nameshow }}" position="bottom" round bind:close="onnameClose">
+          <view class="popup">
+            <view class="title">请输入您的昵称</view>
+            <van-field
+              auto-focus
+              model:value="{{ updatenameData }}"
+              placeholder="请输入您的昵称"
+              border="{{ true }}"
+            />
+            <view class="btn" >
+              <van-button type="default" bindtap="namesubmit" round>确定</van-button>   
+            </view>
+          </view>
+        </van-popup>
+        <!-- 修改日期 -->
+        <van-popup show="{{ Dateshow }}" position="bottom" round bind:close="onDateClose">
+          <van-datetime-picker
+            type="date"
+            value="{{ currentDate }}"
+            bind:input="onInput"
+            bind:cancel = "onDateClose"
+            bind:confirm = "Dateconfirm"
+            min-date="{{ minDate }}"
+            formatter="{{ formatter }}"
+          />
+        </van-popup>
+         <!-- 城市 -->
+        <van-popup show="{{ Cityshow }}" position="bottom" round bind:close="onCityClose">
+          <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择城市" bind:confirm="cityconfirm" bind:cancel="onCityClose"/>
+        </van-popup>
+        <!-- 爱好 -->
+        <van-popup show="{{ hobbyshow }}" position="bottom" round bind:close="onhobbyClose" >
+          <view class="popup">
+            <view class="title">请输入您的爱好</view>
+            <van-field
+              auto-focus
+              model:value="{{ updatehobbyData }}"
+              placeholder="请用逗号隔开您的爱好"
+              border="{{ true }}"
+            />
+            <view class="btn" >
+              <van-button type="default" bindtap="hobbysubmit" round>确定</van-button>   
+            </view>
+          </view>
+        </van-popup>
+        <!-- 期望对象 -->
+        <van-popup show="{{ yearnforshow }}" position="bottom" round bind:close="onyearnforClose" >
+          <view class="popup">
+            <view class="title">请输入您的期望对象</view>
+            <van-field
+              auto-focus
+              model:value="{{ updateyearnforData }}"
+              placeholder="请用逗号隔开您的期望"
+              border="{{ true }}"
+            />
+            <view class="btn" >
+              <van-button type="default" bindtap="yearnforsubmit" round>确定</van-button>   
+            </view>
+          </view>
+        </van-popup>
+        <!-- 职业 -->
+        <van-popup show="{{ professionshow }}" position="bottom" round bind:close="onprofessionClose" >
+          <view class="popup">
+            <view class="title">请输入您的职业</view>
+            <van-field
+              auto-focus
+              model:value="{{ updateprofessionData }}"
+              placeholder="请用输入您的职业"
+              border="{{ true }}"
+            />
+            <view class="btn" >
+              <van-button type="default" bindtap="professionsubmit" round>确定</van-button>   
+            </view>
+          </view>
+        </van-popup>
+        <!-- 身高 -->
+        <van-popup show="{{ heightshow }}" position="bottom" round bind:close="onheightClose" >
+          <view class="popup">
+            <view class="title">请输入您的身高</view>
+            <van-field
+              type="number"
+              maxlength="3"
+              auto-focus
+              bind:change="isnumber"
+              model:value="{{ updateheightData }}"
+              placeholder="请用输入您的身高"
+              border="{{ true }}"
+            />
+            <view class="btn" >
+              <van-button type="default" bindtap="heightsubmit" round>确定</van-button>   
+            </view>
+          </view>
+        </van-popup>
+        <!-- 体重 -->
+        <van-popup show="{{ weightshow }}" position="bottom" round bind:close="onweightClose" >
+          <view class="popup">
+            <view class="title">请输入您的体重</view>
+            <van-field
+              bind:change="isnumber"
+              type="number"
+              maxlength="3"
+              auto-focus
+              model:value="{{ updateweightData }}"
+              placeholder="请用输入您的体重"
+              border="{{ true }}"
+            />
+            <view class="btn" >
+              <van-button type="default" bindtap="weightsubmit" round>确定</van-button>   
+            </view>
+          </view>
+        </van-popup>
+
+        <van-popup show="{{ Gender }}" position="bottom" round bind:close="onweightClose" >
+          <van-picker
+            show-toolbar
+            columns="{{ columns }}"
+            bind:change="onChange"
+            bind:cancel="onCancel"
+            bind:confirm="onConfirm"
+          />
+        </van-popup>
+
+        <van-popup show="{{ Constellation }}" position="bottom" round bind:close="onweightClose" >
+          <van-picker
+            show-toolbar
+            columns="{{ columns1 }}"
+            bind:change="onChange"
+            bind:cancel="onCancel_Constellation"
+            bind:confirm="onConfirm_Constellation"
+          />
+        </van-popup>
+     </view>
+     <view class="btn">
+       <van-button color="#FF0055" type="default" round bindtap="save">保存</van-button>
+     </view>
+  </view>
+</view>

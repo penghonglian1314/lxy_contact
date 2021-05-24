@@ -1,0 +1,133 @@
+.blacklist{
+  display: flex;
+  padding: 20px 10px;
+}
+.left{
+  width: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+.left .img{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50px;
+  background: whitesmoke;
+  overflow: hidden;
+  position: relative;
+  
+}
+.left .van-tag{
+  position: absolute;
+  bottom: 10rpx;
+  left: -5px;
+  border-radius: 50px;
+  width: 60rpx;
+  text-align: right;
+  display: block;
+}
+.left .img image{
+  width: 100%;
+  height: 100%;
+}
+.right{
+  width: 515rpx;
+  border-bottom: 1px solid #FAFAFA;
+  display: flex;
+}
+.right .info{
+  width: 415rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.right .info .top{
+  display: flex;
+}
+.right .info .top .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .center .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .bottom{
+  font-size: .8em;
+}
+.right .more{
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.con_tet4{
+  width: 40px;
+  height: 32rpx;
+  background: whitesmoke;
+  /* position: absolute;
+  top: 50px;
+  left: 80px; */
+  border-radius: 50px;
+  line-height: 32rpx;
+  display: flex;
+}
+
+.con_tet4_1{
+  background: dodgerblue;
+}
+
+.con_tet4_2{
+  background: #FF5697;
+}
+
+.con_tet4 view{
+  color: white;
+  font-size: 12px;
+  padding-left: 6px;
+  /* float: left; */
+}
+
+.con_tet4 text{
+  color: white;
+  font-size: 12px;
+  padding-left: 2px;
+}
+
+#popover popover-item view{
+  font-size: 12px;
+}
+
+.popover1{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx 10rpx 0px 20rpx;
+  float: left;
+}
+/*暂无记录*/
+.zwjl{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between; 
+  width: 140rpx;
+  height: 160rpx;
+  /* border: 1px solid blue; */
+}
+.zwjl image{
+  width: 100%;
+  /* border: 1px solid; */
+  margin: auto;
+}
+.zwjl view{
+  text-align: center;
+  font-size: 26rpx;
+  color: #aaaaaa;
+}

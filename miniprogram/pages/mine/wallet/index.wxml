@@ -1,0 +1,96 @@
+<view class='view-page'>
+  <navbar page-name="钱包"></navbar>
+  <view class='page-content'>
+
+    <view class="card" >
+      <view class="card-list" style="font-size:0.9em">积分(个)</view>
+      <view class="card-list card-list1" style="font-size:2em">{{con}}</view>
+      <view class="card-btn card-list">
+        <van-button round type="default" size="small" bindtap="toCharge">充值</van-button>
+      </view>
+
+      <view class="line"></view>
+    </view>
+    <!-- <view class="cardheader">
+      <view class="card w-50" style="background-image:url(../../../images/walletbg.png);">
+        <view class="card-list" style="font-size:0.9em">积分(个)</view>
+        <view class="card-list" style="font-size:1.5em">721</view>
+        <view class="card-btn card-list">
+          <van-button round type="default" size="small" bindtap="bianxian">变现</van-button>
+        </view>
+      </view>
+      <view class="card w-50" style="background-image:url(../../../images/walletbg.png);">
+        <view class="card-list" style="font-size:0.9em">零钱</view>
+        <view class="card-list" style="font-size:1.5em">10</view>
+        <view class="card-btn card-list">
+          <van-button round type="default" size="small" bindtap="tixian">提现</van-button>
+        </view>
+      </view>
+    </view> -->
+      
+    
+
+    <view>
+      <view class="history">历史记录</view>
+      <view wx:if="{{historyData.length > 0}}">
+        <view class="history_item" wx:for="{{historyData}}" wx:key="key">
+
+          <view>
+            <image src="../../../images/qian.png"></image>
+          </view>
+        
+          
+          <view class="left">
+            <view wx:if="{{item.RecordType==11}}" class="top">
+              <!-- <image src="../../../images/qian.png"></image> -->
+              你充值了[{{item.Amount}}]积分
+            </view>
+
+            <view wx:if="{{item.RecordType==12}}" class="top">
+              <!-- <image></image> -->
+              [{{item.RelationName}}]解锁了你的私聊权限
+            </view>
+
+            <view wx:if="{{item.RecordType==13}}" class="top">
+              <!-- <image></image> -->
+              [{{item.RelationName}}]查看了你的积分照片
+            </view>
+
+            <view wx:if="{{item.RecordType==14}}" class="top">
+              <!-- <image></image> -->
+              [{{item.RelationName}}]赠送你[{{item.RelationType}}]
+            </view>
+
+            <view wx:if="{{item.RecordType==22}}" class="top">
+              <!-- <image></image> -->
+              你解锁了[{{item.RelationName}}]的私聊权限
+            </view>
+
+            <view wx:if="{{item.RecordType==23}}" class="top">
+              <!-- <image></image> -->
+              你解锁了[{{item.RelationName}}]的相册权限
+            </view>
+
+            <view wx:if="{{item.RecordType==24}}" class="top">
+              <!-- <image></image> -->
+              你向[{{item.RelationName}}]赠送了[{{item.RelationType}}]
+            </view>
+            <view class="bottom">
+              {{item.CreateTime}}
+            </view> 
+          </view>
+          <view class="right {{item.RecordType[0]==1? 'right1': ''}}">
+            {{item.RecordType[0]==1? '+':'-'}}{{item.Amount}}
+          </view>
+            
+        </view>
+      </view>
+      <view wx:else class="con_tet14">
+            <image src="../../../images/zwjl.png"></image>
+          暂无记录</view>
+        
+    </view>
+      
+      
+  </view>
+</view>

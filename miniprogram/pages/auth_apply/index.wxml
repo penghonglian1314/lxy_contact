@@ -1,0 +1,32 @@
+<view class="box">
+	<view wx:for="{{applyList}}" wx:key="ID" class="box_wrapper">
+		<!-- 请求 -->
+		<view class="rows">
+			<image class="avatar" src="{{item.AvatarUrl}}" />
+
+			<view class="content">
+
+				<view class="name_time">
+					<text style="color: #353C46; font-size: 36rpx;fontWeight:bold;">{{item.MemberName}}</text>
+					<text class="time" style="color:#AAAAAA; font-size: 28rpx;">{{item.beforeTime}}</text>
+				</view>
+
+				<view class="sex_age" style="background:{{item.Gender==='0'?'#49C7FF':'#FF5697'}}">
+					<text class="sex">{{item.Gender==='0'?'♂':'♀'}}</text>
+					<text class="age">{{item.age}}</text>
+				</view>
+
+				<view class="info"><text>申请{{item.TotalNum}}</text> · <text>同意{{item.AgreeNum}}</text> · <text>注册{{item.RegisterNum}}</text> · <text>小黑屋{{item.BlackNum}}</text>
+				</view>
+
+				<!-- 按钮区 -->
+				<view class="btn_box">
+					<view catchtap="agree" class="agree" wx:if="{{item.ApplyStatus === '0'}}" data-id="{{item.ID}}" data-item="{{item}}">同意</view>
+					<view catchtap="refuse" class="refuse" wx:if="{{item.ApplyStatus === '0'}}" data-id="{{item.ID}}" data-item="{{item}}">拒绝</view>
+					<view catchtap="agree" wx:if="{{item.ApplyStatus === '1'}}">已同意申请</view>
+					<view catchtap="refuse" wx:if="{{item.ApplyStatus === '2'}}">已拒绝申请</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

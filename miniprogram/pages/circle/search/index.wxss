@@ -1,0 +1,170 @@
+/* pages/circle/search/index.wxss */
+.history{
+  padding-top:20rpx;
+}
+.history .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.history .bottom .van-button{
+  width: unset;
+  margin:15rpx;
+  padding: 0 20px !important;
+}
+
+.userinfo .nodata{
+  width: 500rpx;
+  height: 300rpx;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content:  center;
+  align-items: center;
+  padding-top: 20rpx;
+  color: gray;
+}
+.userinfo .nodata .img{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50px;
+  background: #e8e8e8;
+  margin-bottom: 20rpx;
+}
+.userinfo .userinfoItem .list{
+  display: flex;
+  padding: 20px 10px;
+}
+.left{
+  width: 200rpx;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+
+}
+.left .img{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50px;
+  background: whitesmoke;
+  overflow: hidden;
+  position: relative;
+}
+.left .van-tag{
+  position: absolute;
+  bottom: 10rpx;
+  left: -5px;
+  border-radius: 50px;
+  width: 60rpx;
+  text-align: right;
+  display: block;
+}
+.left .img image{
+  width: 100%;
+  height: 100%;
+}
+
+.con_tet1{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  float: left;
+  /* margin: 20px 0px 0px 0px; */
+  background: whitesmoke;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.con_tet1 image{
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+}
+
+.con_tet1 view{
+  width: 10rpx;
+  height: 10rpx;
+  position: absolute;
+  background: #00EAA4;
+  right: 10rpx;
+  bottom: 10rpx;
+  border-radius: 10px;
+  border: 1px solid white;
+
+}
+
+.con_tet4{
+  width: 40px;
+  height: 32rpx;
+  background: whitesmoke;
+  /* position: absolute;
+  top: 50px;
+  left: 80px; */
+  border-radius: 50px;
+  line-height: 32rpx;
+  display: flex;
+}
+
+.con_tet4_1{
+  background: dodgerblue;
+}
+
+.con_tet4_2{
+  background: #FF5697;
+}
+
+.con_tet4 view{
+  color: white;
+  font-size: 12px;
+  padding-left: 6px;
+  /* float: left; */
+}
+
+.con_tet4 text{
+  color: white;
+  font-size: 12px;
+  padding-left: 2px;
+}
+
+.right{
+  width: 580rpx;
+  border-bottom: 1px solid #FAFAFA;
+  display: flex;
+}
+.right .info{
+  width: 415rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.right .info .top{
+  display: flex;
+}
+.right .info .top .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .center .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .bottom{
+  font-size: .8em;
+}
+.right .more{
+  width: 200rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.right .more .top{
+  font-size: .9em;
+  color: gray;
+}

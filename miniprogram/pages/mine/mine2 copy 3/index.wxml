@@ -1,0 +1,11 @@
+<view class="con_tet9">
+    <view class="con_tet9_1">
+      <image src="../../../images/Member001.jpg"></image>
+    </view>
+
+    <view class="line"></view>
+</view>
+
+<view class="but">
+  <button class="but1" form-type="submit">上传图片</button>
+</view>

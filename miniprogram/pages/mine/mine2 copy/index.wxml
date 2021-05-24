@@ -1,0 +1,51 @@
+<view class="list" hover-class="none" hover-stop-propagation="false" wx:for="{{con}}" wx:key="key">
+            <view class="left" >
+              <view class="img" data-index="{{item.LinkMemberID}}" bindtap="but1">
+                <image mode="aspectFill" src="{{item.AvatarUrl2}}"></image>
+
+                <van-tag color="rgba(0,0,0,0.5)"  text-color="#ADADAD">{{item.PhotoUrl1}}</van-tag>
+              </view>
+            </view>
+            <view class="right" >
+              <view class="info" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view selectable="false" space="false" decode="false">
+                    {{item.MemberName2}}
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">会员</van-tag>
+                  <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">新人</van-tag> -->
+                </view>
+                <view class="center" hover-class="none" hover-stop-propagation="false">
+                  <view class="con_tet4 {{item.Gender2==0? 'con_tet4_1':'con_tet4_2'}}">
+                    <view decode='true'>{{item.Gender2==0? '♂':'♀'}}</view>
+                    <text>{{item.Birth2}}</text>
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">相册锁</van-tag> -->
+                </view>
+                <view class="bottom" hover-class="none" hover-stop-propagation="false">
+                  {{item.City2!=''? item.City2 : '--'}}
+                </view>
+              </view>
+              <view class="more" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <!-- 在线 -->
+                </view>
+                <van-icon name="ellipsis" id="{{item.id}}" data-item="{{item}}" data-index="{{index}}"  catchtap = "onTap"/>
+              </view>
+            </view>
+
+            <!-- <popover id='popover' totop="10">
+              <popover-item catchtap='onClickA' data-index="{{item.MemberID2}}" data-item="{{item.MemberName2}}" data-index1="{{item.CircleID}}" data-index2="{{index}}" hasline>移除喜欢</popover-item>
+              <popover-item catchtap='blacklist' data-index="{{item.MemberID2}}" data-index1="{{item.CircleID}}" data-item="{{item.MemberName2}}" hasline>拉黑</popover-item>
+           </popover> -->
+          </view>
+<view class="con_tet5" wx:if="{{con.length=='0'}}">暂无喜欢</view>
+
+<popover id='popover' totop="10">
+  <popover-item catchtap='onClickA' data-index="{{item.MemberID2}}" data-item="{{item.MemberName2}}" data-index1="{{item.CircleID}}" data-index2="{{index}}" hasline>
+    <image class="popover1" src="../../../images/jrxh.png"></image>
+  移除喜欢</popover-item>
+  <popover-item catchtap='blacklist' data-index="{{item.MemberID2}}" data-index1="{{item.CircleID}}" data-item="{{item.MemberName2}}" hasline>
+    <image class="popover1" src="../../../images/jubao.png"></image>
+  举报</popover-item>
+</popover>

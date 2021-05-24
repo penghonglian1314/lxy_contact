@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navbar": "../../circle/component/navbar/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-popup": "@vant/weapp/popup/index"
+  },
+  "navigationStyle": "custom"
+}

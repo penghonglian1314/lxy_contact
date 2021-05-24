@@ -1,0 +1,30 @@
+<view class='view-page'>
+  <navbar page-name="充值"></navbar>
+  <view class='page-content'>
+      <view class="charge">
+        <view class="header">
+          <view class="circle">
+            <image src="../../../../images/qian.png"></image>
+          </view>
+          {{con1}}
+        </view>
+        <view class="body">
+          <view class="body-item {{chooseIndex == item.id && 'bg'}}" wx:for="{{moneyData}}" wx:key="key" data-item="{{item}}" catchtap="choose">
+            <view class="top" data-item="{{item}}">
+              <!-- <view class="circle" data-item="{{item}}"></view> -->
+              <text>{{item.num}}</text>积分
+            </view>
+            <view class="bottom" data-item="{{item}}">
+              ¥{{item.money}}
+            </view>
+            <view class="tag" wx:if="{{item.tag}}" data-item="{{item}}">
+              <van-tag round type="primary" color="{{item.tag=='特惠'? '#00EAA4': '#FFD300'}}" data-item="{{item}}">{{item.tag}}</van-tag>
+            </view>   
+          </view>
+         
+        </view>
+        <van-button round class="but" type="default" bindtap="chargebtn">立即充值</van-button>
+      </view>
+        
+  </view>
+</view>

@@ -1,0 +1,56 @@
+<view class='view-page' style="height:100vh">
+  <navbar>
+    <view slot="title">
+      <view>
+        <view bindtap = "openphotoAuth" wx:if="{{con1}}" style="display:flex;justify-content: center;align-items:center;">
+          我的相册  
+          <van-icon name="arrow-down" size="1.1em" custom-style="padding-top:4rpx;padding-left:10rpx"/> 
+        </view>     
+        <view wx:else>他的相册</view> 
+        <view style="font-size:.7em;color:#B6B6B6;">
+          {{photoAuth}}
+        </view>
+      </view>
+      
+    </view>  
+  </navbar>
+  <view class='page-content' >
+      <scroll-view show-scrollbar="false" wx:if="{{images.length > 0}}" catchtap = "_closeDel" scroll-y="true" style="height:87%;padding:0 20rpx 0 20rpx;box-sizing: border-box;" scroll-top="{{scrollTop}}">
+         <view class="photo" >
+            <view class="img" wx:for="{{images}}" wx:key="key">
+              <image mode="aspectFill" catchtap = "preview" data-src="{{item}}" src="{{item}}" bindlongpress="_longtap" ></image>
+              <van-icon wx:if="{{isdelete}}" data-index="{{index}}" class="del animated rotateIn infinite" name="cross" size="1.3em" color="red" catchtap = "_Del"/>
+            </view>
+         </view>
+         <view wx:if="{{con1}}" style="display:flex;align-items:center;font-size:0.7em;color:#B6B6B6;padding-top:20rpx;">
+            <van-icon name="warning-o" size="1.3em"/>
+            单击可预览图片,长按可对图片进行删除
+         </view>
+           
+      </scroll-view>
+      <view style="height:75vh"  wx:else>
+        <view class="no">
+          <image  src="../../../images/nophoto.png"></image>
+          <view >
+            这么好看的你,快来上传点照片吧
+          </view> 
+        </view> 
+      </view>
+      <view wx:if="{{con1}}" class="bottom-btn">
+        <view style="padding:0 20rpx;">
+          <van-button round color="#FF0055" type="default" bindtap="chooseImage">上传照片</van-button>
+        </view>
+      </view>
+      <van-action-sheet
+        show="{{ photoAuthshow }}"
+        actions="{{ photoAuthData }}"
+        cancel-text="取消"
+        bind:close="onClose"
+        bind:select="onSelect"
+        bind:cancel="onClose"
+      />
+     
+  </view>
+  
+    
+</view>

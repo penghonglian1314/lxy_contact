@@ -1,0 +1,11 @@
+<!-- 提示框组件页面 -->
+
+<view class="mask" wx:if="{{show}}"></view>
+<view class="{{test_box}}" style="display:{{display}}">
+  <view class="{{test}}">
+    <view class="icon" style="display:{{iconDisplay}}">
+      <image src="{{Icon}}"></image>
+    </view>
+    <view class="{{text}}" style="width:{{width}}px">{{Text}}</view>
+  </view>
+</view>

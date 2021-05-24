@@ -1,0 +1,142 @@
+<view>
+  <scroll-view style="height: 90vh" class="history {{Height ? 'addHeight': ''}} " scroll-y scroll-with-animation
+    scroll-into-view='{{toView}}'>
+    <!-- bindscroll="scroll_scroll" scroll-top="{{scrollTop}}" -->
+
+    <!-- <view id="hideview" style="overflow:hidden"> -->
+    <block wx:key="{{index}}" wx:for="{{allContentList}}">
+      <!-- <view> -->
+      <!-- <view>
+      <text class='time'>{{time}}</text>
+    </view> -->
+      <view class='my_right' id='msg-{{index}}' wx:if="{{item.is_my}}">
+        <view class='p_r'>
+          <view class='new_txt'>
+            <view class='new_txt_my' wx:if="{{item.ContentType == 0 }}" data-item="{{item}}" bindlongpress='longpress'>
+              {{item.Message}}</view>
+            <image class='new_image_my' wx:if="{{item.ContentType ==1 }}" data-item="{{item}}" src="{{uploadUrl}}{{item.Message}}">
+            </image>
+            <image class='new_image_my' wx:if="{{item.ContentType ==6 }}" data-item="{{item}}" src="{{item.Message}}">
+            </image>
+          </view>
+          <image mode="aspectFill" class='new_img' src='{{item.AvatarUrl}}'></image>
+        </view>
+
+      </view>
+      <view class='you_left' id='msg-{{index}}' wx:key="{{index}}" wx:if="{{item.is_you}}">
+        <view class='p_r'>
+          <image mode="aspectFill" class='new_img_left' bindtap="detailNews" data-item="{{item}}" wx:if="{{item.MsgClassify == '0'}}"
+            src='{{item.AvatarUrl}}'>
+          </image>
+          <image mode="aspectFill" class='new_img_left' wx:if="{{item.MsgClassify == '2'}}" src='../../../images/Member001.jpg'></image>
+          <!-- <view class='sanjiao you'></view> -->
+          <view class='new_txt'>
+            <view data-item="{{item}}" catchtap='longpress'>
+              <!-- {{item.text}} -->
+              <!-- <block wx:for='{{item.is_two}}' wx:key='index'> -->
+              <view class='new_txt_ai' wx:if="{{item.ContentType ==0 }}">{{item.Message}}</view>
+              <image class='new_image_you' wx:if="{{item.ContentType ==1 }}" data-item="{{item}}"
+                src="{{uploadUrl}}{{item.Message}}">
+              </image>
+              <image class='new_image_you' wx:if="{{item.ContentType ==6 }}" data-item="{{item}}"
+                src="{{item.Message}}">
+              </image>
+              <!-- </block> -->
+            </view>
+          </view>
+        </view>
+
+      </view>
+      <!-- </view> -->
+    </block>
+    <!-- </view> -->
+    <!-- 显示礼物页面 -->
+    <!-- <view class="gift_box1" wx:if="{{giftModal}}"> -->
+    <van-popup show="{{ showGift }}" closeable overlay="{{overlay}}" close-icon="close" round position="bottom"
+      custom-style="height: 40%" bind:close="onClose">
+      <scroll-view scroll-y class="gift_box">
+        <view class="liwu_text">送礼物</view>
+        <view class="gift_box1">
+          <view class="gift_box2" wx:for="{{giftList}}" wx:key="{{index}}">
+            <view class="{{ currentTarget==item.id ? 'activeLight': ''}}">
+              <image mode="aspectFill" bindtap="present" data-item="{{item}}" class="imglist" src="{{item.url}}">
+              </image>
+              <view bindtap="present" data-item="{{item}}" style="color: #353C46; font-size: 26rpx">{{item.text}}</view>
+              <view bindtap="present" data-item="{{item}}"
+                style="color: #aaa; font-size: 22rpx; height: 30rpx; line-height: 30rpx;">
+                {{item.jifen}}积分</view>
+            </view>
+          </view>
+        </view>
+
+      </scroll-view>
+      <view class="chongzhi_btn">
+        <view class="chongzhi_btn1">
+
+          <view class="chongzhi1">
+            <view>
+              <image class="image_1" src="../../../images/qian.png"></image> <text class="nums">{{jifenNum}}</text>
+            </view>
+            <!-- <view class="nums"></view> -->
+            <view class="chongzhi" bindtap="chongzhi">充值 <image class="image_2" src="../../../images/arrow.png"></image>
+            </view>
+          </view>
+          <view class="chongzhi2" bindtap="sendGift">
+            赠送
+            <!-- <view class="zengsong">赠送</view> -->
+          </view>
+        </view>
+      </view>
+    </van-popup>
+    <!-- </view> -->
+  </scroll-view>
+  <view wx:if="{{showSendMsg}}" close-icon="close"
+    class="sendmessage  {{showfunc ? 'show': ''}}"
+    style='bottom: {{inputBottom}}'>
+    <!-- <block wx:if='{{!addImg}}'> -->
+    <view class=" sendmes_box">
+      <image class="imageBot" src="../../../images/yuyin.png"></image>
+      <textarea disabled="{{disabled}}" placeholder="{{placeholder}}" class="weui-textarea"  style="min-height: 70rpx;max-height: 100rpx;overflow: hidden; line-height: 40rpx;padding-top: 10rpx"  type="text" auto-height="true"  bindinput="bindKeyInput" bindblur='blur' value='{{inputValue}}'
+        bindfocus="focus" confirm-type="done"  />
+        <!-- style="inputBottom" -->
+      <image catchtap="submitTo" class="imageBot"  src="../../../images/fasong.png"></image>
+    <!-- <image class="imageBot"  src="../../images/add.svg"></image> -->
+    <image catchtap="addFuncs" class="imageBot"  src="../../../images/add.png"></image>
+
+  <!-- </block> -->
+  <!-- <block wx:if='{{addImg}}'>
+    <view class='voice_ing' bindtap="upimg">发送图片</view>
+  </block> -->
+</view>
+    <!-- 展示后面扩展功能 -->
+<view class="showOtherFunc" wx:if="{{showfunc}}">
+  <!-- 发送图片 -->
+<view class="viewBox">
+  <view>
+  <image bindtap="funcs" data-index = '0' class="imglist" src="../../../images/xiangce.png"></image>
+  <text style="color:#AAAAAA; font-size: 24rpx">相册</text>
+</view>
+  <!-- 拍摄 -->
+<view>
+  <image  bindtap="funcs" data-index = '1'   class="imglist"  src="../../../images/paishe.png"></image>
+  <text style="color:#AAAAAA; font-size: 24rpx">拍摄</text>
+</view>
+  <!--送礼物 -->
+<view>
+  <image class="imglist" bindtap="funcs" data-index = '2'   src="../../../images/liwu.png"></image>
+  <text style="color:#AAAAAA; font-size: 24rpx">礼物</text>
+</view>
+  <!--位置 -->
+<view bindtap="weizhi">
+  <image  class="imglist"  src="../../../images/weizhi.png"></image>
+  <text style="color:#AAAAAA; font-size: 24rpx">位置</text>
+</view>
+</view>
+</view>
+</view>
+
+</view>
+<van-toast id="van-toast" />
+<view wx:if="{{ShowCotent}}" class="loadings">
+<van-loading wx:if="{{showLoading}}"  type="spinner" />
+</view>

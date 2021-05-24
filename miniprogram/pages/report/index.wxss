@@ -1,0 +1,26 @@
+/* pages/report/index.wxss */
+.page-content{
+  padding: 20px 10px;
+  height: calc( 100vh - 65px );
+  box-sizing: border-box;
+}
+.van-checkbox {
+  justify-content: flex-end;
+}
+.phone{
+  padding: 20rpx 0;
+  height: 100rpx;
+}
+.upload{
+  padding-top: 30rpx;
+}
+.radioGroup{
+  height: 90%;
+  padding-bottom: 30rpx;
+}
+.btn{
+  height: 10%;
+}
+.btn .van-button{
+  width: 100%;
+}

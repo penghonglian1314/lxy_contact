@@ -1,0 +1,50 @@
+<view wx:if="{{xiaoxi}}">
+  <view wx:for="{{msgList}}" wx:key="{{index}}">
+    <van-swipe-cell right-width="{{ 65 }}" data-item="{{item}}" async-close bind:close="onClose">
+      <van-cell-group>
+        <view class="rows" bindtap="toContentDetail" data-item="{{item}}">
+          <view class="msg_avatar">
+            <image mode="aspectFill" style="width:100rpx; height:100rpx;border-radius: 50%;" src="{{item.AvatarUrl}}" />
+            <view class="dot1" wx:if="{{item.Online}}"></view> 
+            <!-- <view class="dot1"></view>  -->
+            <!-- 显示是否在线 -->
+          </view>
+          <view class="msg_box">
+            <view class="msg_content">
+              <text style="color: #353C46; font-size: 28rpx">{{item.MemberName}}</text>
+              <!-- <text wx:if="{{item.MsgType}}" style="color: #999; font-size: 26rpx; margin-top: 15rpx">{{item.Message}}</text> -->
+              <text style="color: #AAAAAA; font-size: 24rpx; margin-top: 15rpx">{{item.Message}}</text>
+              <!-- 15个 -->
+            </view>
+            <view class="time" style="color: #999; font-size: 24rpx;">{{item.MsgTime}}</view>
+            <view class="dot2" wx:if="{{item.Counts && item.Counts !== 0}}">{{item.Counts}}</view>
+            <!-- 显示未读消息数量 -->
+          </view>
+        </view>
+      </van-cell-group>
+      <view class="delete" slot="right">删除</view>
+    </van-swipe-cell>
+
+  </view>
+</view>
+<!-- 没有消息时展示的内容 -->
+<view class="noxiaoxi" wx:else>
+  <!-- <image style="width: 400rpx; height: 140rpx;" src="../../../images/noxiaoxi.png"></image>
+  <text style="color: #090909">暂无消息</text> -->
+  <view wx:for="{{msgList}}" wx:key="{{index}}">
+    <view class="rows" catchtap="toContentDetail" data-item="{{item}}">
+      <view class="msg_avatar">
+        <image mode="aspectFill" style="width:100rpx; height:100rpx" src="{{item.AvatarUrl}}" />
+      </view>
+      <view class="msg_box">
+        <view class="msg_content">
+          <text style="color: #353C46; font-size: 28rpx">{{item.MemberName}}</text>
+          <!-- <text wx:if="{{item.MsgType}}" style="color: #999; font-size: 26rpx; margin-top: 15rpx">{{item.Message}}</text> -->
+          <text style="color: #AAAAAA; font-size: 24rpx; margin-top: 15rpx">{{item.Message}}</text>
+          <!-- 15个 -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-dialog id="van-dialog" />

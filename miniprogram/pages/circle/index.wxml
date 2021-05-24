@@ -1,0 +1,266 @@
+<view class="custom-bar" style="height:{{navHeight}}px">
+  <view class="custom-bar__wrapper" style="margin-top:{{searchMarginTop}}px; height: {{searchHeight}}px;width: {{searchWidth}}px" >
+    <view class="search-group">
+      <van-icon name="search" size="25px" style="margin-left:20rpx" bindtap = "searchClick"/>
+      <view class="title">
+        圈子
+      </view>
+        
+    </view>
+  </view>
+</view>
+
+<view style="height:{{navHeight}}px"></view>
+
+<view class="circle" bindtap = "close">
+  <view class="header-left">
+    <van-tabs active="{{ active }}" swipe-threshold="7"  color="#D9D9D9" bind:change="onChange" id="tabs">
+      <van-tab title="全部">
+        <!-- <all/> -->
+        <view>
+          <view class="list" hover-class="none" hover-stop-propagation="false" wx:for="{{all}}" wx:key="key">
+            <view class="left" >
+              <view class="img" data-index="{{item.MemberID}}" bindtap="but1">
+                <image mode="aspectFill" src="{{item.AvatarUrl}}"></image>
+                <van-tag color="rgba(0,0,0,0.5)"  text-color="#ADADAD">{{item.PhotoUrl}}</van-tag>
+              </view>
+              
+            </view>
+            <view class="right" >
+              <view class="info" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view selectable="false" space="false" decode="false">
+                    {{item.MemberName}}
+                  </view>
+                  
+                  <view class="con_tet3">
+                    <image mode="aspectFit" src="{{item.Level==0? '../../images/xr.png':'../../images/vip.png'}}"></image>
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">会员</van-tag>
+                  <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">新人</van-tag> -->
+                </view>
+                <view class="center" hover-class="none" hover-stop-propagation="false">
+                  <view class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}}">
+                    <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view>
+                    <text>{{item.Birth}}</text>
+                  </view>
+
+                  <view wx:if="{{item.PhotoType==1}}" class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}} con_tet4_3">
+                    <!-- <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view> -->
+                    <text>相册锁</text>
+                  </view>
+
+                  <view wx:if="{{item.Constellation!=''}}" class="con_tet4 con_tet4_3">
+                    <!-- <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view> -->
+                    <text>{{item.Constellation}}</text>
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">相册锁</van-tag> -->
+                </view>
+                <view class="bottom" hover-class="none" hover-stop-propagation="false">
+                  {{item.City!=''? item.City : '--'}}<text decode='true'>{{item.introduce!=''? '&nbsp;'+'·'+'&nbsp;'+item.introduce: ''}}</text>
+                </view>
+              </view>
+              <view class="more" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view wx:if="{{item.Online==0}}"></view>
+
+                  {{item.Online=='0'? '在线':item.Online}}
+                </view>
+                <van-icon name="ellipsis" id="{{item.id}}" data-item="{{item}}"  catchtap = "onTap"/>
+              </view>
+            </view>
+
+            <popover id='popover' totop="115">
+              <popover-item catchtap='onClickA' hasline>
+              <image class="popover1" src="../../images/jrxh.png"></image>
+              加入喜欢</popover-item>
+              <popover-item catchtap='blacklist' hasline>
+                <image class="popover1" src="../../images/lh.png"></image>
+              拉黑</popover-item>
+           </popover>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="女生">
+        <!-- <lady/> -->
+        <view> 
+          <view class="list" hover-class="none" hover-stop-propagation="false" wx:if="{{item.Gender==1}}" wx:for="{{girlall}}" wx:key="key">
+            <view class="left" >
+              <view class="img" data-index="{{item.MemberID}}" bindtap="but1">
+                <image mode="aspectFill" src="{{item.AvatarUrl}}"></image>
+                <van-tag color="rgba(0,0,0,0.5)"  text-color="#ADADAD">{{item.PhotoUrl}}</van-tag>
+              </view>
+              <!-- <van-tag color="#E1E1E1"  text-color="#ADADAD">10</van-tag> -->
+            </view>
+            <view class="right" >
+              <view class="info" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view selectable="false" space="false" decode="false">
+                    {{item.MemberName}}
+                  </view>
+                  
+                  <view class="con_tet3">
+                    <image mode="aspectFit" src="{{item.Level==0? '../../images/xr.png':'../../images/vip.png'}}"></image>
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">会员</van-tag>
+                  <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">新人</van-tag> -->
+                </view>
+                <view class="center" hover-class="none" hover-stop-propagation="false">
+                  <view class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}}">
+                    <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view>
+                    <text>{{item.Birth}}</text>
+                  </view>
+
+                  <view wx:if="{{item.PhotoType==1}}" class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}} con_tet4_3">
+                    <!-- <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view> -->
+                    <text>相册锁</text>
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">相册锁</van-tag> -->
+                </view>
+                <view class="bottom" hover-class="none" hover-stop-propagation="false">
+                  {{item.City!=''? item.City : '--'}}<text decode='true'>{{item.introduce!=''? '&nbsp;'+'·'+'&nbsp;'+item.introduce: ''}}</text>
+                </view>
+              </view>
+              <view class="more" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view wx:if="{{item.Online==0}}"></view>
+
+                  {{item.Online=='0'? '在线':item.Online}}
+                </view>
+                <van-icon name="ellipsis" id="{{item.id}}" data-item="{{item}}"  catchtap = "onTap"/>
+              </view>
+            </view>
+
+            <popover id='Grilpopover' totop="115">
+              <popover-item catchtap='onClickA' hasline>
+                <image class="popover1" src="../../images/jrxh.png"></image>
+              加入喜欢</popover-item>
+              <popover-item catchtap='blacklist' hasline>
+                <image class="popover1" src="../../images/lh.png"></image>
+              拉黑</popover-item>
+           </popover>
+          </view>
+          <!-- <popover id='Grilpopover' totop="115">
+              <popover-item catchtap='onClickA' hasline>加入喜欢</popover-item>
+              <popover-item catchtap='blacklist' hasline>拉黑</popover-item>
+           </popover> -->
+        </view>
+      </van-tab>
+      <van-tab title="男士">
+        <!-- <gentleman/> -->
+        <view>
+          <view class="list" hover-class="none" hover-stop-propagation="false" wx:if="{{item.Gender==0}}" wx:for="{{manall}}" wx:key="key">
+            <view class="left" >
+              <view class="img" data-index="{{item.MemberID}}" bindtap="but1">
+                <image mode="aspectFill" src="{{item.AvatarUrl}}"></image>
+                <van-tag color="rgba(0,0,0,0.5)"  text-color="#ADADAD">{{item.PhotoUrl}}</van-tag>
+              </view>
+              <!-- <van-tag color="#E1E1E1"  text-color="#ADADAD">10</van-tag> -->
+            </view>
+            <view class="right" >
+              <view class="info" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view selectable="false" space="false" decode="false">
+                    {{item.MemberName}}
+                  </view>
+                  
+                  <view class="con_tet3">
+                    <image mode="aspectFit" src="{{item.Level==0? '../../images/xr.png':'../../images/vip.png'}}"></image>
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">会员</van-tag>
+                  <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">新人</van-tag> -->
+                </view>
+                <view class="center" hover-class="none" hover-stop-propagation="false">
+                  <view class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}}">
+                    <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view>
+                    <text>{{item.Birth}}</text>
+                  </view>
+
+                  <view wx:if="{{item.PhotoType==1}}" class="con_tet4 {{item.Gender==0? 'con_tet4_1':'con_tet4_2'}} con_tet4_3">
+                    <!-- <view decode='true'>{{item.Gender==0? '♂':'♀'}}</view> -->
+                    <text>相册锁</text>
+                  </view>
+                  <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">相册锁</van-tag> -->
+                </view>
+                <view class="bottom" hover-class="none" hover-stop-propagation="false">
+                  {{item.City!=''? item.City : '--'}}<text decode='true'>{{item.introduce!=''? '&nbsp;'+'·'+'&nbsp;'+item.introduce: ''}}</text>
+                </view>
+              </view>
+              <view class="more" >
+                <view class="top" hover-class="none" hover-stop-propagation="false">
+                  <view wx:if="{{item.Online==0}}"></view>
+
+                  {{item.Online=='0'? '在线':item.Online}}
+                </view>
+                <van-icon name="ellipsis" id="{{item.id}}" data-item="{{item}}"  catchtap = "onTap"/>
+              </view>
+            </view>
+
+            <popover id='manpopover' totop="115">
+              <popover-item catchtap='onClickA' hasline>
+              <image class="popover1" src="../../images/jrxh.png"></image>
+              加入喜欢</popover-item>
+              <popover-item catchtap='blacklist' hasline>
+                <image class="popover1" src="../../images/lh.png"></image>
+              拉黑</popover-item>
+           </popover>
+          </view>
+          <!-- <popover id='manpopover' totop="115">
+              <popover-item catchtap='onClickA' hasline>加入喜欢</popover-item>
+              <popover-item catchtap='blacklist' hasline>拉黑</popover-item>
+           </popover> -->
+        </view>
+      </van-tab>
+      <van-tab disabled></van-tab>
+      <van-tab disabled></van-tab>
+      <van-tab disabled></van-tab>
+    </van-tabs> 
+  </view>
+
+  <show id="show"></show>
+
+  <view class="header-right" >
+    <!-- <van-icon name="filter-o" size="20px" wx:if="{{isshow}}" bindtap = "selectClick"/> -->
+    <image src="../../images/sx.png" wx:if="{{isshow}}" bindtap = "selectClick"></image>
+  </view>
+  <van-action-sheet show="{{ SelectShow }}" bind:close="SelectClose" title="筛选" wx:if="{{islady}}">
+    <view style="padding-top:30rpx;padding-left:20rpx;">想看的用户</view>
+    <view class="btngroup">
+      <a class="{{btnactive == 1 && 'btnactive' }}"  bindtap="selall">全部</a>
+      <a class="{{btnactive == 2 && 'btnactive' }}" bindtap="selnew">新人</a>
+      <a class="{{btnactive == 3 && 'btnactive' }}" bindtap="selbeautiful">女神</a>
+    </view>
+    <view class="online" >
+      <view>
+        只看在线
+      </view>
+      <van-switch checked="{{ online }}" bind:change="onlineChange" size="50rpx" active-color="#00EAA4"/>
+    </view>
+    <view class="bottombtn">
+      <van-button class="but_cz1" color="whitesmoke" round="true" type="default" bindtap="but_cz">重置</van-button>
+      <van-button class="but_cz2" color="#FF0055" round="true" type="default" bindtap="but_sx">确定</van-button>
+    </view>
+  </van-action-sheet>
+  <van-action-sheet show="{{ SelectShow }}" bind:close="SelectClose" title="筛选" wx:else>
+    <view style="padding-top:30rpx;padding-left:20rpx;">想看的用户</view>
+    <view class="btngroup">
+      <a class="{{btnactive1 == 1 && 'btnactive' }}"  bindtap="selall1">全部</a>
+      <a class="{{btnactive1 == 2 && 'btnactive' }}" bindtap="selVIP">VIP</a>
+      <a class="{{btnactive1 == 3 && 'btnactive' }}" bindtap="selSVIP">SVIP</a>
+    </view>
+    <view class="online" >
+      <view>
+        只看在线
+      </view>
+      <van-switch checked="{{ online1 }}" bind:change="onlineChange1" size="50rpx" active-color="#00EAA4"/>
+    </view>
+    <view class="bottombtn">
+      <van-button class="but_cz1" color="whitesmoke" round="true" type="default" bindtap="but_cz1">重置</van-button>
+      <van-button class="but_cz2" color="#FF0055" round="true" type="default" bindtap="but_sx1">确定</van-button>
+    </view>
+  </van-action-sheet>
+</view>
+
+<!-- <view class="but">
+    <button class="but1" bindtap="bindFormSubmit">发布</button>
+  </view> -->

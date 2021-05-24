@@ -1,0 +1,199 @@
+/* pages/circle/index.wxss */
+.circle{
+  width: 750rpx;
+  display: flex;
+  position: relative;
+}
+.header-left{
+  width: 750rpx;
+}
+.header-right{
+  position: absolute;
+  top: 22rpx;
+  right: 10rpx;
+  z-index: 2;
+}
+.van-hairline--top-bottom:after{
+  border: 0 !important;
+}
+.van-tab--active{
+  font-size: 18px!important;
+}
+.btngroup{
+  display: flex;
+  padding-left: 40rpx;
+}
+.btngroup a{
+  /* width: 200rpx; */
+  padding: 15rpx 50rpx;
+  border-radius: 10em;
+  margin: 20rpx 10rpx;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+.online{
+  display: flex;
+  justify-content: space-between;
+  /* padding-top:30rpx;
+  padding-left:20rpx; */
+  padding: 30rpx 20rpx;
+}
+.bottombtn{
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 40rpx;
+}
+.bottombtn .van-button{
+  width: 300rpx;
+}
+.btngroup .btnactive{
+  background:#F6F6F6!important;
+}
+
+.con_tet4{
+  width: 40px;
+  height: 32rpx;
+  background: whitesmoke;
+  /* position: absolute;
+  top: 50px;
+  left: 80px; */
+  border-radius: 50px;
+  line-height: 32rpx;
+  display: flex;
+}
+
+.con_tet4_1{
+  background: dodgerblue;
+}
+
+.con_tet4_2{
+  background: #FF5697;
+}
+
+.con_tet4 view{
+  color: white;
+  font-size: 12px;
+  padding-left: 6px;
+  /* float: left; */
+}
+
+.con_tet4 text{
+  color: white;
+  font-size: 12px;
+  padding-left: 2px;
+}
+
+.custom-bar {
+  display: flex;
+  align-items: center;
+}
+.custom-bar__wrapper {
+  padding: 0 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-group {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search-group .title{
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-left: 2em;
+}
+
+
+/* 列表 */
+.list{
+  display: flex;
+  padding: 20px 10px;
+}
+.left{
+  width: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+.left .img{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50px;
+  background: whitesmoke;
+  overflow: hidden;
+  position: relative;
+  
+}
+.left .van-tag{
+  position: absolute;
+  bottom: 10rpx;
+  left: -5px;
+  border-radius: 50px;
+  width: 60rpx;
+  text-align: right;
+  display: block;
+}
+.left .img image{
+  width: 100%;
+  height: 100%;
+}
+.right{
+  width: 515rpx;
+  border-bottom: 1px solid #FAFAFA;
+  display: flex;
+}
+.right .info{
+  width: 415rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.right .info .top{
+  display: flex;
+}
+.right .info .top .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .center .van-tag{
+  border-radius: 1.2em;
+  padding: .2em .8em;
+  margin: 0 .2em;
+}
+.right .info .bottom{
+  font-size: .8em;
+}
+.right .more{
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.right .more .top{
+  font-size: .9em;
+}
+
+.con_tet5{
+  text-align: center;
+  margin-top: 200rpx;
+}
+
+.popover1{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 25rpx 10rpx 0px 25rpx;
+  float: left;
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navbar": "../../circle/component/navbar/index",
+    "popover": "../../circle/component/popover",
+    "popover-item": "../../circle/component/popover-item"
+  },
+  "navigationStyle": "custom"
+}

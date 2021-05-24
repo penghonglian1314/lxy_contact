@@ -1,0 +1,181 @@
+<view class='view-page'>
+  <!-- <navbar page-name="评论"></navbar> -->
+  <view class='page-content'>
+    <view class="scroll">
+      <view class="dynamicState">
+        <view class="header">
+          <view class="con_tet1">
+            <image mode="aspectFill" src="{{mineData.AvatarUrl}}" data-index="{{mineData.MemberID}}" bindtap="but1"></image>
+          </view>
+
+          <view class="con_tet2">
+            <text>{{mineData.MemberName}}</text>
+
+            <view class="con_tet3">
+              <image mode="aspectFit" src="{{mineData.Level==0? '../../../images/xr.png':'../../../images/vip.png'}}"></image>
+            </view>
+          </view>
+
+          <view class="con_tet4 {{mineData.Gender==0? 'con_tet4_1':'con_tet4_2'}}">
+            <view decode='true'>{{mineData.Gender==0? '♂':'♀'}}</view>
+            <text>{{mineData.Birth}}</text>
+          </view>
+          
+          <view class="con_tet5">
+            <text>{{mineData.CreateTime}}</text>
+          </view>
+
+          <view class="con_tet6">
+            {{mineData.Desctet}}
+          </view>
+
+          <view class="line"></view>
+          
+          <view wx:if="{{mineData.PicUrls.length==1 && mineData.PicUrls[0]!=''}}">
+            <view wx:for="{{mineData.PicUrls}}" wx:for-item="pic" wx:key="key" class="con_tet7" data-index="{{mineData.PicUrls}}" data-src="{{pic}}" bindtap="preview">
+              <image mode="aspectFill" src="{{pic}}"></image>
+            </view>
+
+            <view class="line"></view>
+          </view>
+          
+
+          <view wx:if="{{mineData.PicUrls.length==2||mineData.PicUrls.length==4}}" class="con_tet8">
+            <view wx:for="{{mineData.PicUrls}}" wx:for-item="pic" class="con_tet8_1" data-index="{{mineData.PicUrls}}" data-src="{{pic}}" bindtap="preview">
+              <image mode="aspectFill" src="{{pic}}"></image>
+            </view>
+
+            <view class="line"></view>
+          </view>
+
+          <view wx:if="{{mineData.PicUrls.length==3||mineData.PicUrls.length>4}}" class="con_tet9">
+            <view wx:for="{{mineData.PicUrls}}" wx:for-item="pic" class="con_tet9_1" data-index="{{mineData.PicUrls}}" data-src="{{pic}}" bindtap="preview">
+              <image mode="aspectFill" src="{{pic}}"></image>
+            </view>
+
+            <view class="line"></view>
+          </view>
+
+          <view class="footer">
+            <view class="top">
+              <view class="con_tet10" wx:if="{{mineData.UrlList[0]!=''}}">
+                <view wx:for="{{mineData.UrlList}}" wx:if="{{index<10}}">
+                  <image mode="aspectFill" src="{{item}}"></image>
+                </view>
+
+                <view class="con_tet10_1" wx:if="{{mineData.UrlList.length>10}}">
+                  <image mode="aspectFill" src="{{mineData.UrlList[10]}}"></image>
+
+                  <text>{{mineData.UrlList.length-10}}</text>
+                </view>
+                
+              </view>
+              <!-- <view class="img lastimg">
+                {{imageData.length}}
+              </view> -->
+            </view>
+            <view class="bottom">
+
+              <view class="con_tet11">
+                <view>
+                  <image wx:if="{{mineData.ydz}}" src="../../../images/ydzicon.png" catchtap="ydianzan" data-index="{{mineData.DynamicID}}" data-index1="{{index}}" data-item="{{mineData.MemberID}}"></image>
+                  <image wx:else src="../../../images/dzicon.png" catchtap="dianzan" data-index="{{mineData.DynamicID}}" data-index1="{{index}}" data-item="{{mineData.MemberID}}"></image>
+                </view>
+
+                <text>{{mineData.Likes==0? '抢首赞': mineData.Likes}}</text>
+              </view>
+
+              <view class="con_tet12">
+                <view catchtap="pl" data-index="{{index}}" data-item="{{mineData.DynamicID}}"  data-index1="{{mineData.MemberID}}">
+                  <image wx:if="{{mineData.CanComment==0}}" src="../../../images/jzplicon.png"></image>
+                  <image wx:else src="../../../images/plicon.png"></image>
+                </view>
+
+                <text>{{mineData.CanComment==0? '禁评':mineData.Comments}}</text>
+              </view>
+
+              <view class="con_tet13">
+                <van-icon name="ellipsis" size="1.4em" catchtap="onTap" id="{{mineData.id}}" data-index="{{mineData.MemberID}}" data-item="{{mineData.MemberName}}" data-index1="{{mineData}}" />
+              </view>
+
+              <!-- <view>
+                <image class="bottom_con1" wx:if="{{mineData.ydz}}" src="../../../images/ydzicon.png"></image>
+                <van-icon wx:else name="good-job-o" size="1.6em" custom-style="top:6rpx" data-index="{{mineData.DynamicID}}" data-item="{{mineData.MemberID}}" bindtap="dianzan"/>
+                {{mineData.Likes}}
+              </view>
+              <view>
+                <van-icon name="comment-o" size="1.6em" custom-style="top:10rpx" data-index="{{mineData.DynamicID}}" data-item="{{mineData.MemberID}}" bindtap="pl"/>
+                {{mineData.Comments}}
+              </view> -->
+              <view class="line"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view style="margin-bottom:30rpx;">最新评论</view>
+
+      <!-- 评论-回复-回复评论显示区域 -->  
+      <view class="container">
+          <!-- 用户评论回复显示区域 -->    
+          <view class="container-item" wx:for="{{comment_list}}" wx:for-item="list" wx:key="key">
+            <image mode="aspectFill" class="item_img" src="{{list.AvatarUrl}}"></image>
+            <view class="item_right">
+              <view class="right_name">{{list.MemberName}}</view>
+
+              <view wx:if="{{list.res==0}}" class="right_name1">楼主</view>
+
+              <text class="right_content_txt2">{{list.CreateTime}}</text>
+
+              <view class="line"></view>
+
+              <view class="right_content">
+                <text class="right_content_txt" bindtap='replyComment' data-type="1" data-name='{{list.comment_user_name}}' data-cid='{{list.comment_id}}' data-pid="{{list.parent_id}}">{{list.Comment}}</text>
+                <!-- <text class="right_content_txt2">{{list.CreateTime}}</text> -->
+                <!-- 回复评论 -->
+                <!-- 判断回复列表数据中的parent_id和评论列表数据的comment_id是否相等 相等就显示 不等就不显示 -->          
+                <!-- <view class="reply" wx:for="{{comment_list2}}" wx:for-item="list2" wx:key="list2" wx:if="{{list2.parent_id == list.comment_id}}">
+                  <image class="reply_img" src="{{list2.comment_user_avatar}}"></image>
+                  <view class="reply_right">
+                    <view class="right_name">{{list2.comment_user_name}}</view>
+                    <text wx:if="{{list2.reply_name == ''}}" class="right_content_txt" bindtap='replyComment' data-type="2" data-name='{{list2.comment_user_name}}' data-cid='{{list2.comment_id}}' data-pid="{{list2.parent_id}}">{{list2.comment_text}}</text>
+                    <text wx:if="{{list2.reply_name != ''}}" bindtap='replyComment' data-type="2" data-name='{{list2.comment_user_name}}' data-cid='{{list2.comment_id}}' data-pid="{{list2.parent_id}}" class="right_content_txt">回复 <text class="right_name">{{list2.reply_name}}：</text>{{list2.comment_text}}</text>
+                    <text class="right_content_txt2">{{list2.comment_time}}</text>
+                  </view>
+                </view> -->
+              </view>
+            </view>
+          </view>           
+
+          <view class="con_tet14" wx:if="{{comment_list.length=='0'}}">
+            <image src="../../../images/zwpl.png"></image>
+          暂无评论，快来抢沙发..</view>
+      </view>  
+    </view>
+    <view wx:if="{{mineData.CanComment==1}}" class="comm1">
+        <textarea value="{{com}}" data-name="{{com}}" bindinput="onHandleTextSync" placeholder="说点什么吧"></textarea>
+
+        <view data-item="{{mineData.MemberID}}" catchtap="but">发送</view>
+      </view> 
+  </view>
+</view>
+
+<show id="show"></show>
+
+<popover id='popover' totop="10">
+    <popover-item catchtap='lik' hasline>
+      <image class="popover1" src="../../../images/jrxh.png"></image>
+    加入喜欢</popover-item>
+    <popover-item catchtap='blacklist' hasline>
+      <image class="popover1" src="../../../images/jubao.png"></image>
+    举报</popover-item>
+  </popover>
+
+<!-- <popover id='popover' totop="10">
+  <popover-item catchtap='lik' hasline>
+    <image class="popover1" src="../../images/jrxh.png"></image>
+  加入喜欢</popover-item>
+  <popover-item catchtap='blacklist' hasline>
+    <image class="popover1" src="../../images/jubao.png"></image>
+  举报</popover-item>
+</popover> -->

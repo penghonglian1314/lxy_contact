@@ -1,0 +1,30 @@
+/* component/globalMsg.wxss */
+page {
+
+  position: relative;
+}
+.bigbox {
+  background-color: #000000;
+  opacity: 0.8;
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+}
+.image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.content {
+  display: flex;
+  padding: 0 40rpx;
+  height: 170rpx;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.content1{
+  padding-left: 20rpx;
+  vertical-align: middle;
+  display: inline-block;
+}

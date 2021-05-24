@@ -1,0 +1,33 @@
+/* pages/messages/index.wxss */
+.rows {
+  padding: 20rpx;
+  display: flex;
+  position: relative;
+}
+.msg_avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.msg_content {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  height: 100rpx;
+  /* line-height: 100rpx; */
+}
+.time {
+  position: absolute;
+  right: 30rpx;
+}
+.delete {
+  width: 120rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+  position: absolute;
+  right: -66px;
+  /* bottom: 22px; */
+  bottom: 18px;
+}

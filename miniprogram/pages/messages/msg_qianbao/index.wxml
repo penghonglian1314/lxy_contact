@@ -1,0 +1,19 @@
+<view class="con" wx:for="{{con}}">
+  <view class="con1">
+    <image src="../../../images/chongzhi.png"></image>
+
+    <text class="con1_1">{{item.tit}}</text>
+
+    <text class="con1_2">{{item.time2}}</text>
+  </view>
+
+  <view class="con2">
+    <view class="con2_1">{{item.type}}</view>
+
+    <view class="con2_2">{{item.num}}</view>
+  </view>
+
+  <view class="con3">
+    <text>{{item.item.time1}}{{item.num}}</text>
+  </view>
+</view>

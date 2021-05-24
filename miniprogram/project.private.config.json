@@ -1,0 +1,185 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/mine/homepage/index",
+          "pathName": "pages/mine/homepage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/firstpage/index",
+          "pathName": "pages/firstpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/homepage/updateMeaasge/index",
+          "pathName": "pages/mine/homepage/updateMeaasge/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/firstpage/index",
+          "pathName": "pages/firstpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/circle/index",
+          "pathName": "pages/circle/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/wallet/charge/index",
+          "pathName": "pages/mine/wallet/charge/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/wallet/charge/index",
+          "pathName": "pages/mine/wallet/charge/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine2 copy 2/index",
+          "pathName": "pages/mine/mine2/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine2 copy/index",
+          "pathName": "pages/mine/mine2 copy/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine2 copy 2/index",
+          "pathName": "pages/mine/mine2 copy 2/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine2 copy 4/index",
+          "pathName": "pages/mine/mine2 copy 4/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/messages/msg_index/index",
+          "pathName": "pages/messages/msg_index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/messages/msg_index/index",
+          "pathName": "component/globalMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "component/globalMsg",
+          "pathName": "pages/component/globalMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/component/globalMsg",
+          "pathName": "pages/messages/component/globalMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/messages/apply_code/index",
+          "pathName": "pages/messages/component/globalMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/homepage/index",
+          "pathName": "pages/mine/homepage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/homepage/index",
+          "pathName": "pages/mine/homepage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/homepage/index",
+          "pathName": "pages/mine/homepage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/homepage/index",
+          "pathName": "pages/mine/homepage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/homepage/index",
+          "pathName": "pages/mine/homepage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/messages/msg_index/index",
+          "pathName": "pages/messages/msg_index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/circle/index",
+          "pathName": "pages/circle/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/circle/index",
+          "pathName": "pages/circle/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,284 @@
+<global_msg class="global" wx:if="{{globalMsg}}" data-item="{{globalContent}}" bindtap="toApply"></global_msg>
+<view class='view-page' style="">
+	<!-- <navbar></navbar> -->
+	<view class='page-content'>
+
+		<view class="homepage">
+			<scroll-view scroll-y="true" show-scrollbar="false" scroll-top="{{scrollTop}}">
+				<view class="header" style="background: url({{mine.AvatarUrl}}); background-repeat: no-repeat; background-size: 100%;">
+					<!-- <view class="top" >
+              <view class="img">
+                <image src="{{mine.AvatarUrl}}"></image>
+              </view>
+
+              {{mine.MemberName}}
+            </view> -->
+					<!-- <view class="bottom" >
+              <view class="left" >
+                <view class="lefttop" >
+                  <view >{{mine.name}}</view>
+                  <van-tag class="ml-15" round  color="#E1E1E1" size="medium" text-color="#ADADAD">会员</van-tag>
+                  <van-tag class="ml-15" round  color="#E1E1E1" size="medium" text-color="#ADADAD">新人</van-tag>
+                </view>
+                <view class="leftbottom" >
+                  <van-tag color="#fff" round  size="medium" text-color="#ADADAD">{{mine.sex == 0 ? '♂' : '♀'}}{{mine.age}}</van-tag>
+                  <van-tag class="ml-15" round  color="#fff" size="medium" text-color="#ADADAD">{{mine.City}}</van-tag>
+                  <van-tag class="ml-15" round  color="#fff" size="medium" text-color="#ADADAD">{{mine.constellation}}</van-tag>
+                </view>
+              </view>
+              <view class="right" >
+                <van-button wx:if="{{IsphotoShow}}" size="small" type="default" bindtap = "toupdateMeaasge">编辑</van-button>
+                <van-button wx:if="{{IsphotoShow==false&&IsLinkShow==false}}" size="small" type="default" data-index="{{mine.MemberID}}" bindtap="but" >加入喜欢</van-button>
+                <van-button wx:if="{{IsphotoShow==false&&IsLinkShow==true}}" size="small" type="default" >已喜欢</van-button>
+              </view>
+            </view> -->
+				</view>
+				<view class="body">
+					<view class="top">
+						<view class="img">
+							<image mode="aspectFill" src="{{mine.AvatarUrl}}"></image>
+						</view>
+
+						<view class="top1">
+							<view>
+								{{mine.MemberName}}
+							</view>
+							
+
+							<view class="con_tet3">
+								<image mode="aspectFit" src="{{mine.Level==0? '../../../images/xr.png':'../../../images/vip.png'}}"></image>
+							</view>
+						</view>
+
+						
+					</view>
+
+					<view class="body_con">
+						{{mine.City}} {{mine.Gender==0? '男': '女'}} {{mine.Birth!='0'? mine.Birth+'岁': ''}}
+					</view>
+
+					<view class="bottom">
+						<view class="right">
+							<van-button wx:if="{{IsphotoShow}}" size="small" type="default" bindtap="toupdateMeaasge">编辑</van-button>
+							<van-button wx:if="{{IsphotoShow==false&&IsLinkShow==false}}" size="small" type="default" data-index="{{mine}}" bindtap="but">
+								<image src="../../../images/jrxh.png"></image>
+								加入喜欢
+							</van-button>
+							<van-button class="right1" color="{{IsphotoShow==false&&IsLinkShow==true? '#FFF3F7': ''}}" wx:if="{{IsphotoShow==false&&IsLinkShow==true}}" size="small" type="default">
+								<image src="../../../images/xh.png"></image>
+								已喜欢
+							</van-button>
+						</view>
+					</view>
+
+					<view class="line"></view>
+
+					<view class="mydynamic mydynamic1" data-index="{{mine.MemberID}}" bindtap="mine2">
+						<view wx:if="{{IsphotoShow}}">我的动态</view>
+						<view wx:else>他的动态</view>
+
+						<view wx:if="{{con8[0]}}" class="con_tet7_4">
+							<image mode="aspectFill" src="{{con8[0]}}"></image>
+						</view>
+
+						<view wx:if="{{con8[1]}}" class="con_tet7_5">
+							<image mode="aspectFill" src="{{con8[1]}}"></image>
+						</view>
+
+						<view wx:if="{{con8[2]}}" class="con_tet7_6">
+							<image mode="aspectFill" src="{{con8[2]}}"></image>
+						</view>
+
+						<view>
+							<van-icon name="arrow" />
+						</view>
+					</view>
+					<view class="mydynamic" data-index="{{mine.MemberID}}" bindtap="tophoto">
+						<view wx:if="{{IsphotoShow}}">我的相册</view>
+						<view wx:else>他的相册</view>
+						<view>
+							<van-icon name="arrow" />
+						</view>
+					</view>
+
+					<!-- <view wx:if="{{!IsphotoShow}}" class="mydynamic" data-index="{{mine.MemberID}}" bindtap="mine2">
+              <view>他的动态</view>
+
+              <view wx:if="{{con8[0]}}" class="con_tet7_4">
+                <image src="{{con8[0]}}"></image>
+              </view>
+
+              <view wx:if="{{con8[1]}}" class="con_tet7_5">
+                <image src="{{con8[1]}}"></image>
+              </view>
+
+              <view wx:if="{{con8[2]}}" class="con_tet7_6">
+                <image src="{{con8[2]}}"></image>
+              </view>
+              <view ><van-icon name="arrow" /></view>
+            </view>
+            <view wx:if="{{!IsphotoShow}}" class="mydynamic" data-index="{{mine.MemberID}}" bindtap="tophoto">
+              <view>他的相册</view>
+              <view><van-icon name="arrow" /></view>
+            </view> -->
+					<view class="photo">
+						<view class="noimage" wx:if="{{images==''&&IsphotoShow}}">
+							<view class="noimage1">快来上传照片吸引异性吧</view>
+							<van-button round color="#FF0055" size="small" type="default" bindtap="tophoto">立即上传</van-button>
+						</view>
+						<view class="haveimg" wx:else>
+							<!-- <view class="img" wx:for="{{images}}" wx:key="key">
+                  <image src="{{item}}" ></image>
+                </view> -->
+
+						<view class="noimage" wx:if="{{images==''&&IsphotoShow==false}}">
+							<view class="noimage1">他很低调，还未上传照片..</view>
+						</view>
+
+							<view class="con_tet8">
+								<view wx:if="{{images[0]!=''}}" class="con_tet9" style="width: {{con3.length<=7? con3.length*106: 7*106}}px">
+									<view wx:for="{{images}}" wx:if="{{index<6}}" class="con_tet9_1">
+										<image mode="aspectFill" src="{{item}}"></image>
+									</view>
+
+									<view wx:if="{{images.length>6}}" class="con_tet9_1 con_tet9_2">
+										<image src="{{images[6]}}"></image>
+										<text>+{{images.length-6}}</text>
+									</view>
+
+									<view class="line"></view>
+								</view>
+							</view>
+						</view>
+						<view wx:if="{{con}}" class="masklayer">
+							<view>该用户设置了限制,查看相册需申请</view>
+							<image src="{{images[0]}}"></image>
+							<van-button color="#786AFF" font-color="white" wx:if="{{con3}}" round size="small" type="default" bindtap="applyphoto">申请</van-button>
+							<van-button wx:else round class="masklayer1" color="rgba(0,0,0,0)" size="small" type="default">已申请</van-button>
+						</view>
+
+						<view wx:if="{{jifen}}" class="masklayer">
+							<view>该用户设置了相册锁</view>
+							<image src="{{images[0]}}"></image>
+							<van-button class="masklayer2" icon="http://mall-imag.linxyun.com/FgFAoASujpekCfuqZZ3hvvJ3SdHK" color="#786AFF" font-color="white" round size="small" type="info" bindtap="applyphoto1">{{Num}}积分查看</van-button>
+						</view>
+					</view>
+					<view class="myData">
+						<view wx:if="{{IsphotoShow}}">我的资料</view>
+						<view wx:else>他的资料</view>
+						<view class="p-20">
+							<van-row>
+								<van-col class="p-20_1" span="10">身高</van-col>
+								<van-col span="15">{{mine.Height}}</van-col>
+							</van-row>
+						</view>
+						<view class="p-20">
+							<van-row>
+								<van-col class="p-20_1" span="10">体重</van-col>
+								<van-col span="15">{{mine.Weight}}</van-col>
+							</van-row>
+						</view>
+						<view class="p-20">
+							<van-row>
+								<van-col class="p-20_1" span="10">城市</van-col>
+								<van-col span="15">{{mine.City}}</van-col>
+							</van-row>
+						</view>
+						<view class="p-21">
+							<van-row>
+								<van-col class="p-20_1" span="10">日常爱好</van-col>
+								<van-col span="15">{{mine.Hobby}}</van-col>
+							</van-row>
+						</view>
+						<view class="p-21">
+							<van-row>
+								<van-col class="p-20_1" span="10">期望对象</van-col>
+								<van-col span="15">{{mine.Expect}}</van-col>
+							</van-row>
+						</view>
+						<view class="p-21">
+							<van-row>
+								<van-col class="p-20_1" span="10">个人介绍</van-col>
+								<van-col span="15">
+									<view class="textview">
+										{{mine.introduce}}
+									</view>
+								</van-col>
+							</van-row>
+						</view>
+
+						<view class="line"></view>
+					</view>
+				</view>
+			</scroll-view>
+
+			<show id="show"></show>
+
+			<view wx:if="{{IsphotoShow==false}}" class="btn" hover-class="none" hover-stop-propagation="false">
+				<van-button round wx:if="{{mine.Gender==1}}" color="#00EAA4" type="default" icon="point-gift-o" bind:tap="giveGift">送礼物</van-button>
+				<van-button wx:if="{{mine.Gender==1}}" round color="#00EAA4" type="default" icon="chat-o" bind:tap="ChatOpen" data-index="{{mine.MemberID}}"  data-Gender="{{mine.Gender}}" data-name="{{mine.MemberName}}" data-item="{{mine.AvatarUrl}}">私聊</van-button>
+				<van-button wx:if="{{mine.Gender==0}}" class="btn1" round color="#00EAA4" type="default" icon="chat-o" bind:tap="ChatOpen" data-index="{{mine.MemberID}}" data-Gender="{{mine.Gender}}" data-name="{{mine.MemberName}}"  data-item="{{mine.AvatarUrl}}">私聊</van-button>
+				<van-button round type="default" icon="good-job-o" data-index="{{mine.MemberID}}" bind:tap="good">{{con1}}</van-button>
+				<van-button round type="default" data-index="{{mine.MemberID}}" bind:tap="nogood">
+					<image style="width:1.1em;height:1.1em;position: relative;top: 5px;" src="../../../images/cai.png"></image>
+					{{con2}}
+				</van-button>
+				<!-- 礼物 -->
+				<van-popup id="box" show="{{ giftshow }}" position="bottom" custom-style="height: 700rpx" bind:close="GiftClose">
+					<view class="gift">
+						<view class="title">
+							<view style="font-size:1em;font-weight:400;">送礼物</view>
+							<van-icon name="cross" size="1.3em" bind:tap="GiftClose" />
+						</view>
+						<view class="giftBody">
+							<view class="giftBodyitem {{giftChooseIndex === index ? 'bg' : ''}}" wx:for="{{giftList}}" wx:key="key" data-Index="{{index}}" bind:tap="GiftClick">
+								<image src="{{item.url}}"></image>
+								<view>{{item.text}}</view>
+								<text>{{item.jifen}}积分</text>
+							</view>
+						</view>
+						<view class="giftfooter">
+							<view class="giftfooterleft">
+								<view class="crile">
+									<image mode="aspectFill" src="../../../images/qian.png"></image>
+								</view>
+								<text decode="true" class="circle_1">&nbsp;{{Num1}}</text>
+								<view style="padding-left:20rpx;color: #aaaaaa" bind:tap="towallet">充值
+									<van-icon name="arrow" style="position:relative;top:5rpx;" />
+								</view>
+							</view>
+							<van-button color="#FF0055" class="give" type="default" round bind:tap="giveGiftsbumit">赠送</van-button>
+						</view>
+					</view>
+				</van-popup>
+
+				<!-- 私聊 -->
+				<!-- onChatClose bind:close="onChatClose" -->
+				<van-popup round show="{{ IsChatshow }}" class='chat_box' custom-style='width:520rpx;'>
+					<view class="chat_wrapper">
+						<view class="avatar">
+							<image src="{{mine.AvatarUrl}}"></image>
+						</view>
+						<view class="icon_wrapper">
+							<van-icon bindtap="onChatClose" name="close" size='24' color='#CCCCCC' />
+						</view>
+
+						<view class="title">
+							需要对该用户「赠送礼物」或「赠送{{mine.MsgNum}}积分」才能解锁私聊
+						</view>
+						<view class="chat_btns">
+							<view class="chat_btn">
+								<image src="../../../images/jf (2).png" class="chat_btn_item img"></image>
+								<text bindtap="applyphoto2" class="chat_btn_item text">赠送{{mine.MsgNum}}积分</text>
+							</view>
+							<view class="chat_btn">
+								<image src="../../../images/liwu.png" class="chat_btn_item img"></image>
+								<text  bindtap="applyphoto3" class="chat_btn_item text">赠送礼物</text>
+							</view>
+						</view>
+					</view>
+				</van-popup>
+			</view>
+		</view>
+	</view>
+</view>

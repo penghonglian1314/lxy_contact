@@ -1,0 +1,5 @@
+<movable-area style="width:{{areaWidth}}px;height:{{areaHeight}}px">
+  <movable-view catchtap="backTo" direction="all">
+    <image src="../images/tongzhi.png"></image>
+  </movable-view>
+</movable-area>

@@ -1,0 +1,85 @@
+/* pages/messages/toInteraction/toInteraction.wxss */
+/* pages/messages/index.wxss */
+.rows_type0 {
+  padding: 20rpx;
+  display: flex;
+  position: relative;
+
+  border-bottom: 1rpx solid #eee;
+}
+
+.rows_type1 {
+  padding: 20rpx;
+  display: flex;
+  position: relative;
+  height: 200rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.comment {
+  /* height: 100rpx; */
+  position: absolute;
+  bottom: 45rpx;
+  left: 140rpx;
+  font-size: 26rpx;
+}
+
+.comment_box {
+  display: flex;
+}
+
+.comment_box view {
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #eee;
+  margin: 0 20rpx;
+  text-align: center;
+  border-radius: 35rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.agree {
+  width: 150rpx;
+  height: 40rpx;
+  background-color: #00EAA4;
+  color: #fff;
+
+
+}
+
+.hasAgree {
+  width: 150rpx;
+
+  /* background-color: #F4F5F7; */
+}
+
+.refuse {
+  width: 90rpx;
+  /* background-color: #F4F5F7; */
+}
+
+.msg_avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.msg_content {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  height: 100rpx;
+  /* line-height: 100rpx; */
+}
+
+.time {
+  position: absolute;
+  right: 30rpx;
+}
+
+.noxiaoxi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 300rpx;
+}

@@ -1,0 +1,58 @@
+<view class='view-page' style="height:100vh">
+  <navbar page-name="黑名单"></navbar>
+  <view class='page-content'>
+    <view wx:if="{{blacklist.length > 0}}" bind:tap="close">
+       <view class="blacklist" wx:for="{{blacklist}}" wx:key="key">
+        <view class="left" >
+          <view class="img" data-index="{{item.LinkMemberID}}" bindtap="but1">
+            <image mode="aspectFill" src="{{item.AvatarUrl2}}"></image>
+			
+			<van-tag color="rgba(0,0,0,0.5)"  text-color="#ADADAD">{{item.PhotoUrl1.length}}</van-tag>
+          </view>
+        </view>
+        <view class="right" >
+          <view class="info" >
+            <view class="top" hover-class="none" hover-stop-propagation="false">
+              <view selectable="false" space="false" decode="false">
+                {{item.MemberName2}}
+              </view>
+              <!-- <van-tag color="#E1E1E1" size="medium" text-color="#ADADAD">女神</van-tag> -->
+            </view>
+            <view class="center" hover-class="none" hover-stop-propagation="false">
+              <view class="con_tet4 {{item.Gender2==0? 'con_tet4_1':'con_tet4_2'}}">
+                    <view decode='true'>{{item.Gender2==0? '♂':'♀'}}</view>
+                    <text>{{item.Birth2}}</text>
+                  </view>
+            </view>
+            
+          </view>
+          <view class="more" >
+            <van-icon name="ellipsis" id="{{item.id}}" data-item="{{item}}" data-index="{{index}}" catchtap = "onTap"/> 
+            <!-- <popover id='popover' totop="10">
+              <popover-item catchtap='onClickA' hasline>移除黑名单</popover-item>
+              <popover-item catchtap='blacklist' data-index="{{item.MemberID}}" hasline>举报</popover-item>
+            </popover> -->
+          </view>
+        </view>
+      </view>
+    </view>
+      
+   
+    <view wx:else style="display:flex;justify-content: center;align-items:center;height:50vh;">
+      <view class="zwjl">
+        <image mode="aspectFill" src="../../../images/zwjl.png"></image>
+        <view>暂无记录</view>
+      </view>
+    </view>
+      
+  </view>
+</view>
+
+<popover id='popover' totop="10">
+  <popover-item catchtap='onClickA' hasline>
+    <image class="popover1" src="../../../images/ychmd.png"></image>
+  移除黑名单</popover-item>
+  <popover-item catchtap='blacklist' data-index="{{item.MemberID}}" hasline>
+    <image class="popover1" src="../../../images/jubao.png"></image>
+  举报</popover-item>
+</popover>

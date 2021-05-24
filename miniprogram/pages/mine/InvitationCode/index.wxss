@@ -1,0 +1,42 @@
+/* pages/mine/InvitationCode/index.wxss */
+.page-content{
+  margin-top: 40rpx;
+}
+.top{
+  width: 750rpx;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: #F6F6F6;
+  margin-bottom: 20rpx;
+}
+
+.img image{
+  width: 100%;
+  height: 100%;
+}
+
+.page-content .van-button{
+  width: 700rpx;
+}
+.column{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.applying{
+  width: 750rpx;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+  "van-tab": "@vant/weapp/tab/index",
+  "van-tabs": "@vant/weapp/tabs/index",
+  "van-icon": "@vant/weapp/icon/index",
+  "van-action-sheet": "@vant/weapp/action-sheet/index",
+  "van-switch": "@vant/weapp/switch/index",
+  "van-tag": "@vant/weapp/tag/index",
+  "popover": "./component/popover",
+  "popover-item": "./component/popover-item"
+  },
+  "navigationBarTitleText": "我喜欢的"
+}

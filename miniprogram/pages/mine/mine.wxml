@@ -1,0 +1,232 @@
+<global_msg class="global" wx:if="{{globalMsg}}" data-item="{{globalContent}}" bindtap="toApply"></global_msg>
+<view class="con">
+  <view class="bj">
+  <view data-index="{{member.MemberID}}" catchtap="tohomepage">
+    <view class="con_tet1">
+      <image mode="aspectFill" wx:if="{{isAuthUserInfo}}" src="{{member.avatarUrl}}"></image>
+      
+      <button wx:else  bindtap="auth">登 陆</button>
+    </view>
+
+    <view class="con_tet2">
+      <text wx:if="{{isAuthUserInfo}}">{{member.nickName}}</text>
+
+      <text wx:else>昵称</text>
+
+      <view class="con_tet3">
+        <image mode="aspectFit" src="{{member.Level==0? '../../images/xr.png':'../../images/vip.png'}}"></image>
+      </view>
+    </view>
+
+    <view class="con_tet4">
+      <text>查看或编辑个人资料</text>
+    </view>
+    
+    <view class="con_tet5">
+      <van-icon name="arrow" />
+    </view>
+
+    <view class="line"></view>
+  </view>
+  
+
+  <view class="line"></view>
+
+  <view class="con_tet6">
+    <view class="con_tet6_1" bindtap="but1">
+      <view class="con_tet6_1_1">
+        <text>{{con1}}</text>
+      </view>
+
+      <view class="con_tet6_1_2">
+        <text>我喜欢的</text>
+      </view>
+    </view>
+
+    <view class="con_tet6_2" bindtap="but2">
+      <view class="con_tet6_1_1">
+        <text>{{con2}}</text>
+      </view>
+
+      <view class="con_tet6_1_2">
+        <text>喜欢我的</text>
+      </view>
+    </view>
+
+    <view class="con_tet6_3" bindtap="but3">
+      <view class="con_tet6_1_1">
+        <text>{{con6}}</text>
+      </view>
+
+      <view class="con_tet6_1_2">
+        <text>浏览历史</text>
+      </view>
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view class="line"></view>
+
+  <view class="con_tet7" data-index="{{member.MemberID}}" bindtap="mine2">
+    <view class="con_tet7_1">
+      <image src="../../images/dticon.png"></image>
+    </view>
+
+    <text class="con_tet7_2">我的动态</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" />
+    </view>
+
+    <view wx:if="{{con8[0]}}" class="con_tet7_4">
+      <image mode="aspectFill" src="{{con8[0]}}"></image>
+    </view>
+
+    <view wx:if="{{con8[1]}}" class="con_tet7_5">
+      <image mode="aspectFill" src="{{con8[1]}}"></image>
+    </view>
+
+    <view wx:if="{{con8[2]}}" class="con_tet7_6">
+      <image mode="aspectFill" src="{{con8[2]}}"></image>
+    </view>
+
+    <text wx:if="{{con4}}" class="con_tet7_7">发布第一条动态</text>
+
+    <view class="line"></view>
+  </view>
+
+  <view class="con_tet7" data-index="{{member.MemberID}}" bindtap="tophoto">
+    <view class="con_tet7_1">
+      <image src="../../images/xcicon.png"></image>
+    </view>
+
+    <text class="con_tet7_2">我的相册</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" /></view>
+
+    <!-- <view class="con_tet7_4">
+      <image></image>
+    </view>
+
+    <view class="con_tet7_5">
+      <image></image>
+    </view>
+
+    <view class="con_tet7_6">
+      <image></image>
+    </view> -->
+
+    <text wx:if="{{con5}}" class="con_tet7_7">快来上传图片</text>
+
+    <view class="line"></view>
+
+    <view class="con_tet8">
+      <view wx:if="{{con3[0]!=''}}" class="con_tet9" style="width: {{con3.length<=7? con3.length*106: 7*106}}px">
+        <view wx:for="{{con3}}" wx:if="{{index<6}}" class="con_tet9_1">
+          <image mode="aspectFill" src="{{item}}"></image>
+        </view>
+        
+        <view wx:if="{{con3.length>6}}" class="con_tet9_1 con_tet9_2">
+          <image src="{{con3[6]}}"></image>
+          <text>+{{con3.length-6}}</text>
+        </view>
+
+        <view class="line"></view>
+      </view>
+    </view>
+
+    
+
+    <view class="line"></view>
+  </view>
+  </view>
+
+  <view class="con_tet7" bindtap="towallet">
+    <view class="con_tet7_1">
+      <image src="../../images/qbicon.png"></image>
+    </view>
+
+    <text class="con_tet7_2">钱包</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" /></view>
+
+    <view class="line"></view>
+  </view>
+
+  <view class="con_tet7"  bindtap="toblacklist">
+    <view class="con_tet7_1">
+      <image src="../../images/hmdicon.png"></image>
+    </view>
+
+    <text class="con_tet7_2">黑名单</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" />
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view class="con_tet7" bindtap="toInvitationCode">
+    <view class="con_tet7_1">
+      <image src="../../images/yqmicon.png"></image>
+    </view>
+
+    <text class="con_tet7_2">邀请码</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" />
+    </view>
+
+    <text class="con_tet7_7">去申请</text>
+
+    <view class="line"></view>
+  </view>
+
+  <view wx:if="{{member.Role==0}}" class="con_tet7" data-index="{{member.MemberID}}" bindtap="but4">
+    <view class="con_tet7_1">
+      <image src="../../images/lxkficon.png"></image>
+    </view>
+
+    <text class="con_tet7_2">联系客服</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" />
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view wx:else class="con_tet7" data-index="{{member.MemberID}}" bindtap="but5">
+    <view class="con_tet7_1">
+      <image src="../../images/lxkficon.png"></image>
+    </view>
+
+    <text class="con_tet7_2">任务中心</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" />
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view class="con_tet7" bindtap="toset">
+    <view class="con_tet7_1">
+      <image></image>
+    </view>
+
+    <text class="con_tet7_2">设置</text>
+
+    <view class="con_tet7_3">
+      <van-icon name="arrow" />
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view class="line"></view>
+</view>

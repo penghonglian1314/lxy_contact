@@ -1,0 +1,15 @@
+<!--pages/zhuye/beizhu/beizhu.wxml-->
+<view class="box">
+  <view style="color: #999;font-size: 28rpx">
+    备注名
+  </view>
+  <view>
+    <input bindinput="input" type="text"  value="{{inputValue}}"  placeholder="请输入备注名" />
+  </view>
+  <view style="color: #999;font-size: 24rpx">
+   {{num}}/20
+  </view>
+
+</view>
+<view class="save" bindtap="save">保存</view>
+<van-toast id="van-toast" />

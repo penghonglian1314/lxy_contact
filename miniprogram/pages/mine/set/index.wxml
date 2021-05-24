@@ -1,0 +1,138 @@
+<view class='view-page'>
+  <navbar page-name="设置"></navbar>
+  <view class='page-content'>
+    <view class="photoset">
+      <view class="title">
+        相册设置
+      </view>
+      <view class="body">
+        <van-radio-group value="{{ radio }}" catch:change="onChange">
+          <van-cell-group >
+            <van-cell wx:if="{{con1}}" clickable data-name="1" use-label-slot catch:click="onClick">
+              <view slot="label">
+                <view style="display:flex;align-items:center;" >
+                  <van-icon name="edit" catchtap = "setjifen"/>
+                  <view catchtap = "setjifen">   
+                    {{jifen}}
+                  </view>
+                </view>
+              </view>
+              <view slot="title" style="display:flex;align-items:center;">
+                <view class="van-cell-text" style="margin-right:10rpx;">需要{{jifennum}}积分解锁</view>
+                <!-- <van-tag  type="danger">推荐</van-tag> -->
+                <van-tag color="#00EAA4" text-color="#fff">推荐</van-tag>
+              </view>
+                
+              <!-- <van-radio slot="right-icon" name="1" /> -->
+              <van-radio slot="right-icon" name="1" use-icon-slot >
+                <van-icon name="{{ radio === '1' ? 'checked' : '' }}" color="#FF0055" size="1.4em"  slot="icon" />
+              </van-radio>
+            </van-cell>
+            <van-cell title="相册公开" clickable data-name="2" bind:click="onClick">
+              <!-- <van-radio slot="right-icon" name="2" /> -->
+               <van-radio slot="right-icon" name="2" use-icon-slot >
+                <van-icon name="{{ radio === '2' ? 'checked' : '' }}" color="#FF0055"  size="1.4em"  slot="icon" />
+              </van-radio>
+            </van-cell>
+             <van-cell title="需通过验证" clickable data-name="3" bind:click="onClick">
+              <!-- <van-radio slot="right-icon" name="3" /> -->
+               <van-radio slot="right-icon" name="3" use-icon-slot >
+                <van-icon name="{{ radio === '3' ? 'checked' : '' }}" color="#FF0055" size="1.4em"  slot="icon" />
+              </van-radio>
+            </van-cell>
+          </van-cell-group>
+        </van-radio-group>
+      </view>
+      <view wx:if="{{con1}}" class="title">
+        私聊设置
+      </view>
+       <view wx:if="{{con1}}" class="body">
+        <van-radio-group value="{{ siradio }}" catch:change="_onChange">
+          <van-cell-group >
+            <van-cell  clickable data-siname="1" use-label-slot catch:click="_onClick">
+              <view slot="label">
+                <view style="display:flex;align-items:center;" >
+                  <van-icon name="edit" catchtap = "_setjifen"/>
+                  <view catchtap = "_setjifen">   
+                    {{sijifen}}
+                  </view>
+                </view>
+              </view>
+              <view slot="title" style="display:flex;align-items:center;">
+                <view class="van-cell-text" style="margin-right:10rpx;">增送礼物或支付{{sijifennum}}积分</view>
+                <van-tag color="#00EAA4" text-color="#fff">推荐</van-tag>
+              </view>
+                
+              <van-radio slot="right-icon" name="1" use-icon-slot >
+                <van-icon name="{{ siradio === '1' ? 'checked' : '' }}" color="#FF0055" size="1.4em" slot="icon" />
+              </van-radio>
+            </van-cell>
+
+            <van-cell title="公开" clickable data-siname="2" bind:click="_onClick">
+              <!-- <van-radio slot="right-icon" name="2" /> -->
+               <van-radio slot="right-icon" name="2" use-icon-slot >
+                <van-icon name="{{ siradio === '2' ? 'checked' : '' }}" color="#FF0055" size="1.4em"  slot="icon" />
+              </van-radio>
+            </van-cell>
+          </van-cell-group>
+        </van-radio-group>
+      </view>  
+      
+        
+    </view>
+    
+  </view>
+
+  
+  <view wx:if="{{completed}}">
+    <view class='toast-box'>
+      <view class='toastbg'></view>
+      <view class='showToast'>
+        <view class='toast-title'>
+          <text>设置积分</text>
+        </view>
+        <view class='toast-main'>
+          <view class='toast-input'>
+            <input type='number' placeholder='请输入自定义积分' focus="true" bindinput='getUserInput'></input>
+          </view>
+        </view>
+        <view class='toast-button'>
+          <view class='cancel'>
+          <van-button type="default" bindtap="cancelSelected">取消</van-button>
+            <!-- <button bindtap="cancelSelected"></button> -->
+          </view>
+          <view class='success'>
+          <van-button type="default" bindtap="successSelected">确定</van-button>
+            <!-- <button bindtap="successSelected">确定</button> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{_completed}}">
+    <view class='toast-box'>
+      <view class='toastbg'></view>
+      <view class='showToast'>
+        <view class='toast-title'>
+          <text>设置积分</text>
+        </view>
+        <view class='toast-main'>
+          <view class='toast-input'>
+            <input type='number' placeholder='请输入自定义积分' focus="true" bindinput='_getUserInput'></input>
+          </view>
+        </view>
+        <view class='toast-button'>
+          <view class='cancel'>
+          <van-button type="default" bindtap="cancelSelected">取消</van-button>
+            <!-- <button bindtap="cancelSelected"></button> -->
+          </view>
+          <view class='success'>
+          <van-button type="default" bindtap="_successSelected">确定</van-button>
+            <!-- <button bindtap="successSelected">确定</button> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!--component/globalMsg.wxml-->
+<view class="bigbox">
+  <view class="content">
+    <view style="width: 90%">
+      <!-- <image class="image" src="{{globalContent.AvatarUrl}}"></image> -->
+      <image class="image" src="{{globalContent.AvatarUrl}}"></image>
+      <view class="content1">
+        <!-- <view style="color: #FFFFFF; font-size: 30rpx">消息通知</view> -->
+        <view style="color: #FFFFFF; font-size: 30rpx">{{globalContent.Title}}</view>
+        <!-- <view style="color: #FFFFFF; font-size: 30rpx">申请查看</view>
+        <view style="color: #FFFFFF; font-size: 30rpx">申请查看</view>
+        <view style="color: #FFFFFF; font-size: 30rpx">申请查看</view>
+        <view style="color: #FFFFFF; font-size: 30rpx">申请查看</view> -->
+     
+        <view style="color: #FFFFFF; font-size: 24rpx">{{globalContent.Message}}</view>
+        <!-- <view style="color: #FFFFFF; font-size: 24rpx">{{Message}}</view> -->
+        <!-- <view style="color: #FFFFFF; font-size: 24rpx">562J5Yiw</view> -->
+      </view>
+    </view>
+    <view style="color: #FFFFFF; font-size: 24rpx; width: 8%">刚刚</view>
+  </view>
+</view>
